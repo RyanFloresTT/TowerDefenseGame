@@ -1,0 +1,51 @@
+0. We are going to focus on the HUB take damage when an enemy comes into contact with it. 
+0. We will be using Events, they are AMAZING. They are so flexible!
+0. We will also use interfaces here, we will talk about what problem that solves for us right after we create a new C# script called "HUB".
+
+0. Now the problem we face is damage. 
+How will the HUB take damage? 
+When enemies run into it
+
+How will the enemies know what it is running into?
+...
+This is where interfaces come into play.
+Interfaces allow us to group up functionality. I will explain as we go on.
+First, create a new folder called "Interfaces" and a C# script called "ITakeDamage". In this script remove all the default code and type "public interface ITakeDamage". Interfaces must be public.		
+
+So the thought process behind what we are doing is that we want to attach this "ITakeDamage" interface to any object that we want the ability for it to take damage.
+Within the interface, we must declare the methods we will use in each object, but we will not define what it does, that is the job for each object. 
+Think about it like this, when the HUB takes damage, we may want it to glow red, and play a certain sound, but what if we want our turrets to take damage? Should it have the same functionality as the HUB? Maybe you want that, but this is a clean way to keep the same basic functions, while adding different functionality.
+
+Interfaces are also a good clean way to add a certain functionality to anything! Think about it, with this interface, we can attach it to ANY objet we want to take damage, implement it's own logic and done!
+
+So lets get back to our "ITakeDamage" interface and think about what things we should have when it comes to an object taking damage. We should have a method for taking damage.
+
+It is important to know this as well, no class should be forced to implement an interface that it does not use. I do not want to add a method to heal because I don't know if every single object that takes damage should heal. If you want that functionality, you can implement multiple interfaces on one class so you can hava "ITakeDamage" and "IHealDamage" on one class.
+
+So lets declare, but NOT define a TakeDamage method that takes an int "damage" as a parameter.
+
+Now that we have our interface done, we can save it and move back to our "HUB" script.
+We can now implement the "ITakeDamage" interface, and implement it, an easy way to do it is to right click on the red and add the missing members.
+
+Let's create a serialzed field for MaxHealth, and another serialized field for current health. We normally dont' want to use serialzied field for our current health field, but we do here to make sure everything works.
+
+This is a monobehaviour, so we can use our "Start" method to set our "currentHealth = maxHealth" at the start of every scene load.
+
+All we have to do now in is add the functionality. So "currentHealth -= damage" in our "TakeDamage" method.
+
+Now, lets create a new folder in our scripts folder called "Enemy" and a new C# script called "Enemy".
+In this Enemy script, we can make use of the "OnTriggerEnter" method to detect any triggers.
+Now we want to make sure we are running into something that can take damage. Otherwise we don't want to do anything, an easy way to do this is to use
+var damageable = other.gameObject.GetComponent<ITakeDamage>();
+this is creating a new variable called "damageable" and setting it equal to our collision's component of type "ITakeDamage". We then call the method "ITakeDamage" on the damageable variable, note that we are using a "?" before the period. This is null propigation, this is a shorthand for "only do this if the variable is not null".
+We can also set a serialize field for the amount of damage this enemy should do, lets do that and add that as the parameter to TakeDamage.
+
+In this TakeDamage method, right below the taking damage, we can check to see if our currentHealth is equal to 0, if it is, then we will Destroy the gameObject so we can see it die.
+
+Remove the collider from the model, and add a trigger collider to the parent, this is because we are using OnTriggerEnter and I don't want this to be on the visual side of things, so we will add the trigger collider here.
+
+Make a few more enemies to show
+
+I will make the enemies move a little slower so we can see the HUB taking damage. 
+
+The HUB disappears! But with some errors, the enemies do not get destroyed when they deal damage, this is an easy fix. Also, if we had any remaining enemies, they would create errors because their target was removed, we can also make sure this doesn't happen by creating a new variable in our "MoveTowardsTarget" script. We will create a private Vector3 called currentTarget and set it equal to the serialize field "target"'s position. We use a Vector3 here because if we used a transform and set it equal to our target, it would be be the transform of the object,in our case the HUB, and when it disapears, it will still create an error since it won't be there anymore. This makes it so that the object will move towards where the object was at the start no matter what happens to the object, which is what we want. We can also rename this script to be more explicit, "MoveTowardsStaticTarget".
