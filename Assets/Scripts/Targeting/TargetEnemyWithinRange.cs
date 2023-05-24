@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 [RequireComponent(typeof(SphereCollider))]
 public class TargetEnemyWithinRange : MonoBehaviour
 {
-    public event EventHandler<GameObject> OnObjectEnteredRange;
+    public event EventHandler<Enemy> OnObjectEnteredRange;
 
     private SphereCollider triggerRadius;
 
@@ -18,13 +18,8 @@ public class TargetEnemyWithinRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.GetComponent<Enemy>());
-        if (IsAnEnemy(other.gameObject))
-        {
-            Debug.Log("Yes");
-            OnObjectEnteredRange?.Invoke(this, other.gameObject);
-        }
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        if (enemy == null) return;
+        OnObjectEnteredRange?.Invoke(this, enemy);
     }
-
-    private bool IsAnEnemy(GameObject target) => target.GetComponent<Enemy>() != null;
 }
