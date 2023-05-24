@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  maxHealth: 2
+  currentHealth: 0
 --- !u!136 &115547144
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -545,6 +547,8 @@ GameObject:
   - component: {fileID: 543343035}
   - component: {fileID: 543343034}
   - component: {fileID: 543343033}
+  - component: {fileID: 543343037}
+  - component: {fileID: 543343038}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -606,6 +610,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -495.86, z: 0}
+--- !u!114 &543343037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543343032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68678202de59dff409f966a86f671540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &543343038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543343032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ff62470e993a43bb3bef6cab23600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  firingDelayInSeconds: 0.5
 --- !u!1 &554759083
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  maxHealth: 2
+  currentHealth: 0
 --- !u!114 &860844923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.125
-  speedMultipier: 1
+  speedMultipier: 0.5
   target: {fileID: 1054495305}
 --- !u!4 &1092446293
 Transform:
@@ -906,6 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  maxHealth: 2
+  currentHealth: 0
 --- !u!136 &1092446296
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1443,6 +1477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  maxHealth: 2
+  currentHealth: 0
 --- !u!136 &1638407936
 CapsuleCollider:
   m_ObjectHideFlags: 0

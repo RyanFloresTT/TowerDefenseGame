@@ -6,6 +6,9 @@ using UnityEngine;
 public class TurretTargeting : MonoBehaviour
 {
     [SerializeField] private TargetEnemyWithinRange targetingSource;
+
+    public event EventHandler<Enemy> OnCurrentTargetChanged;
+    
     private List<Enemy> enemies;
     private Enemy target;
 
@@ -27,27 +30,20 @@ public class TurretTargeting : MonoBehaviour
         enemies.Remove(e);
     }
 
-
-    private void Update()
+    private void FixedUpdate()
     {
-        if (HasTarget())
+        if (TargetChanged())
         {
-            LooKAtTarget();
+            target = TargetingHelper.TargetClosestEnemy(enemies, transform);
+            OnCurrentTargetChanged?.Invoke(this, target);
         }
     }
 
-    private void FixedUpdate()
+    public Enemy GetCurrentTarget()
     {
-        target = TargetingHelper.TargetClosestEnemy(enemies, transform);
+        return target;
     }
 
-    private void LooKAtTarget()
-    {
-        var lookPos = target.transform.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(lookPos, Vector3.up);
-        float eulerY = lookRotation.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0,eulerY,0);
-    }
-
+    private bool TargetChanged() => target != TargetingHelper.TargetClosestEnemy(enemies, transform);
     private bool HasTarget() => target != null;
 }
