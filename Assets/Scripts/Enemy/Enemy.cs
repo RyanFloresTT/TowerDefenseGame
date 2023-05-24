@@ -1,5 +1,4 @@
-using System;
-using UnityEngine;
+using System;using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -7,11 +6,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage = 1;
 
     private void OnTriggerEnter(Collider other)
-    {   
-        var damageable = other.gameObject.GetComponent<ITakeDamage>();
-        if (damageable == null) return;
-        damageable.TakeDamage(damage);
+    {
+        DoDamageToNonEnemyUnit(other.gameObject);
+    }
+
+    private void DoDamageToNonEnemyUnit(GameObject unit)
+    {
+        if (!IsNonEnemyDamageable(unit)) return;
+        unit.GetComponent<ITakeDamage>().TakeDamage(damage);
         OnEnemyDestroyed?.Invoke(this, this);
         Destroy(gameObject);
     }
+
+    private bool IsNonEnemyDamageable(GameObject go) =>
+        go.GetComponent<Enemy>() != null && go.GetComponent<ITakeDamage>() != null;
 }
