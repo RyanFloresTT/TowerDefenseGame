@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxHealth: 2
+  maxHealth: 10
   currentHealth: 0
 --- !u!136 &115547144
 CapsuleCollider:
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  firingDelayInSeconds: 0.5
+  firingDelayInSeconds: 1
 --- !u!1 &554759083
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxHealth: 2
+  maxHealth: 10
   currentHealth: 0
 --- !u!114 &860844923
 MonoBehaviour:
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxHealth: 2
+  maxHealth: 10
   currentHealth: 0
 --- !u!136 &1092446296
 CapsuleCollider:
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  maxHealth: 2
+  maxHealth: 10
   currentHealth: 0
 --- !u!136 &1638407936
 CapsuleCollider:
