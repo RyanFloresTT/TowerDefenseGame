@@ -27,8 +27,11 @@ public class TurretShooting : MonoBehaviour
 
     private IEnumerator FireLaser()
     {
-        target.TakeDamage(damage);
-        yield return new WaitForSeconds(firingDelayInSeconds);
+        while (HasTarget())
+        {
+            target.TakeDamage(damage);
+            yield return new WaitForSeconds(firingDelayInSeconds);
+        }
     }
 
     private bool HasTarget() => target != null;
