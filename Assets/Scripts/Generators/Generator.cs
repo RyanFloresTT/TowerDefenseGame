@@ -23,7 +23,7 @@ public class Generator : MonoBehaviour
 
     private IEnumerator GenerateResources()
     {
-        while (true)
+        while (isGenerating)
         {
             Generate();
             yield return new WaitForSeconds(generationRateInSeconds * (1 / generationSpeedMultiplier));
@@ -32,8 +32,7 @@ public class Generator : MonoBehaviour
 
     private void Generate()
     {
-        var resource = new ResourceData(tier, generationAmount);
-        Debug.Log(this.gameObject.name + ", generated " + generationAmount + " tier " + tier + " resource(s).");
+        var resource = new ResourceData(tier, generationAmount * generationAmountMultiplier);
         OnResourceGenerated?.Invoke(this, resource);
     }
 

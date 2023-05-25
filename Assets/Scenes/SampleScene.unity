@@ -2415,7 +2415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tier: 2
-  generationAmount: 0.5
+  generationAmount: 0.1
   generationRateInSeconds: 0.1
 --- !u!4 &1979786363
 Transform:

@@ -20,7 +20,6 @@ public class ResourceUI : MonoBehaviour
 
     private void UpdateText(IDictionary<GeneratorTier, float> data)
     {
-        Debug.Log("Text Updated");
         for (int i = 0; i < data.Count; i++)
         {
             var amount = data.ElementAt(i).Value.ToString();
