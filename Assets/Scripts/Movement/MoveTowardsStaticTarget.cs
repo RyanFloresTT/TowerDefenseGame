@@ -28,4 +28,9 @@ public class MoveTowardsStaticTarget : MonoBehaviour
     {
         transform.LookAt(currentTarget);
     }
+
+    public void SetTarget(Transform target)
+    {
+        currentTarget = target.position;
+    }
 }

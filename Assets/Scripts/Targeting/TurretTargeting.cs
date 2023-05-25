@@ -15,7 +15,7 @@ public class TurretTargeting : MonoBehaviour
     private void Start()
     {
         targetingSource.OnObjectEnteredRange += Handle_TargetEnteredRange;
-        Enemy.OnEnemyDestroyed += Handle_EnemyDestroyed;
+        Enemy.OnEnemyDeath += Handle_EnemyDestroyed;
         enemies = new();
     }
     

@@ -2,7 +2,7 @@ using System;using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakeDamage
 {
-    public static event EventHandler<Enemy> OnEnemyDestroyed;
+    public static event EventHandler<Enemy> OnEnemyDeath;
     [SerializeField] private int damage = 1;
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         if (!IsNonEnemyDamageable(unit)) return;
         unit.GetComponent<ITakeDamage>().TakeDamage(damage);
-        Destroy(gameObject);
+        KillEnemy();
     }
 
     public void TakeDamage(int incomingDamage)
@@ -35,12 +35,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private void KillEnemy()
     {
-        Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        OnEnemyDestroyed?.Invoke(this, this);
+        OnEnemyDeath?.Invoke(this, this);
     }
 
     private bool IsNonEnemyDamageable(GameObject go) =>
