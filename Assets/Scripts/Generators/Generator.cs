@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Security.Cryptography;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Generator : MonoBehaviour
@@ -10,7 +11,7 @@ public class Generator : MonoBehaviour
     [SerializeField] private GeneratorTier tier;
     [SerializeField] private float generationAmount;
     [SerializeField] private float generationRateInSeconds;
-    [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private GeneratorUpgradeManager upgradeManager;
 
     private float amountMultiplier = 1f;
     private float rateMultiplier = 1f;
@@ -25,19 +26,20 @@ public class Generator : MonoBehaviour
 
     private void ListenToUpgradeEvents()
     {
-        UpgradeAmount.OnAmountMultiplierUpdated += Handle_AmountMultiplierChanged;
-        UpgradeRate.OnRateMultiplierUpdated += Hande_RateMultiplierChanged;
+        UpgradeFloat.OnFloatChanged += Handle_UpgradeFloat;
     }
 
-    private void Handle_AmountMultiplierChanged(object sender, float e)
+    private void Handle_UpgradeFloat(object sender, UpgradeData e)
     {
-        amountMultiplier += e;
-    }
-    private void Hande_RateMultiplierChanged(object sender, float e)
-    {
-        isGenerating = false;
-        rateMultiplier += e;
-        isGenerating = true;
+        switch (e.type)
+        {
+            case (GeneratorUpgrades.AmountBase):
+                IncreaseBaseAmount(e.value);
+                break;
+            case (GeneratorUpgrades.RateMultiplierAdd):
+                IncreaseRateMultiplierFromBase(e.value);
+                break;
+        }
     }
 
     private IEnumerator GenerateResources()
@@ -59,4 +61,35 @@ public class Generator : MonoBehaviour
     {
         isGenerating = willGenerate;
     }
+
+    private void IncreaseAmountMultiplierFromBase(float amount)
+    {
+        amountMultiplier = 1 + amount;
+    }
+
+    private void IncreaseRateMultiplierFromBase(float amount)
+    {
+        rateMultiplier = 1 + amount;
+    }
+
+    private void DecreaseBaseRate(float amount)
+    {
+        generationRateInSeconds -= amount;
+    }
+
+    private void IncreaseBaseAmount(float amount)
+    {
+        generationAmount += amount;
+    }
+
+    public void UpgradeRate()
+    {
+        upgradeManager.LevelUpRate();
+    }
+
+    public void UpgradeAmount()
+    {
+        upgradeManager.LevelUpAmount();
+    }
+
 }
