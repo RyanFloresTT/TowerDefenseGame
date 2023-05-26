@@ -1,24 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class UpgradeRate : Upgrade
+[CreateAssetMenu()]
+public class UpgradeRate : ScriptableObject, IUpgrade
 {
-    public static event EventHandler<float> UpgradeRateChanged;
+    public static event EventHandler<float> OnRateMultiplierUpdated;
     [SerializeField] float rateIncreasePerLevel;
     [SerializeField] int maxLevel;
     [SerializeField] int currentLevel;
     private float totalIncrease = 0f;
 
-    public void DoUpgrade()
+    public void Upgrade()
     {
         if (currentLevel < maxLevel)
         {
             totalIncrease += rateIncreasePerLevel;
-            UpgradeRateChanged?.Invoke(this, totalIncrease);
+            OnRateMultiplierUpdated?.Invoke(this, totalIncrease);
             currentLevel++;
         }
     }
+
+    public bool IsAtMaxLevel() => currentLevel == maxLevel;
 }

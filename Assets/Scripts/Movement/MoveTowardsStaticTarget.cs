@@ -10,6 +10,7 @@ public class MoveTowardsStaticTarget : MonoBehaviour
 
     private void Start()
     {
+        if (target == null) return;
         currentTarget = target.position;
     }
 

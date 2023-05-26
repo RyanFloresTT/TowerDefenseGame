@@ -38,7 +38,7 @@ public class GameObjectPool
     {
         for (int i = 0; i < initializeAmount; i++)
         {
-            var gameObject = UnityEngine.Object.Instantiate(prefab, container);
+            var gameObject = GameObject.Instantiate(prefab, container);
             Return(gameObject);
         }
     }
