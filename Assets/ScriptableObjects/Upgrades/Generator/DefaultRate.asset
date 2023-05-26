@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e73e431ebcd0294396a27870c834957, type: 3}
   m_Name: DefaultRate
   m_EditorClassIdentifier: 
-  rateIncreasePerLevel: 0.05
+  rateIncreasePerLevel: 0.5
   maxLevel: 5
-  currentLevel: 0
+  currentLevel: 5
