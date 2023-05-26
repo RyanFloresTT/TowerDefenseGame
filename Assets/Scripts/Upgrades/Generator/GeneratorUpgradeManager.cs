@@ -9,6 +9,13 @@ public class GeneratorUpgradeManager : IManageUpgrades
     [SerializeField] private UpgradeFloat upgradeSlotOne;
     [SerializeField] private UpgradeFloat upgradeSlotTwo;
 
+    private ResourceHandler resourceHandler;
+
+    private GeneratorUpgradeManager()
+    {
+        resourceHandler = ResourceHandler.Instance;
+    }
+
     public void LevelUpRate()
     {
         LevelUpUpgrade(upgradeSlotOne);
@@ -26,5 +33,5 @@ public class GeneratorUpgradeManager : IManageUpgrades
         OnUpgradeBought?.Invoke(this, EventArgs.Empty);
     }
 
-    public bool CanUpgrade(IUpgrade upgrade) => upgrade != null && !upgrade.IsAtMaxLevel();
+    public bool CanUpgrade(IUpgrade upgrade) => upgrade != null && !upgrade.IsAtMaxLevel() && resourceHandler.Purchase(upgrade.GetPurchasePrice());
 }

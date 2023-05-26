@@ -189,11 +189,17 @@ MonoBehaviour:
   upgradeManager:
     upgradeSlotOne:
       type: 3
+      costPerLevel: 1
+      costIncreasePerLevel: 1
+      resourceTierToUpgrade: 0
       increasePerLevel: 0.05
       maxLevel: 5
       currentLevel: 0
     upgradeSlotTwo:
       type: 0
+      costPerLevel: 2
+      costIncreasePerLevel: 2
+      resourceTierToUpgrade: 0
       increasePerLevel: 1
       maxLevel: 5
       currentLevel: 0
