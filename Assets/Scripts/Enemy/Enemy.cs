@@ -3,9 +3,9 @@ using System;using UnityEngine;
 public class Enemy : MonoBehaviour, ITakeDamage
 {
     public static event EventHandler<Enemy> OnEnemyDeath;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float damage = 1;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         KillEnemy();
     }
 
-    public void TakeDamage(int incomingDamage)
+    public void TakeDamage(float incomingDamage)
     {
         currentHealth -= incomingDamage;
         if (currentHealth <= 0)

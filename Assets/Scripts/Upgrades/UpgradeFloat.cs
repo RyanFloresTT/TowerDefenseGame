@@ -5,8 +5,7 @@ using UnityEngine;
 [Serializable]
 public class UpgradeFloat : IUpgrade
 {
-    public static event EventHandler<UpgradeData> OnFloatChanged;
-    [SerializeField] private GeneratorUpgrades type;
+    [SerializeField] private UpgradeTypes type;
     [SerializeField] private float costPerLevel;
     [SerializeField] private float costIncreasePerLevel;
     [SerializeField] private GeneratorTier resourceTierToUpgrade;
@@ -16,13 +15,13 @@ public class UpgradeFloat : IUpgrade
 
     private float totalFloatIncrease = 0f;
 
-    public void Upgrade()
+    public void Upgrade(IGetUpgrades upgradeObject)
     {
         if (currentLevel < maxLevel)
         {
             totalFloatIncrease += increasePerLevel;
             var data = new UpgradeData(type, totalFloatIncrease);
-            OnFloatChanged?.Invoke(this, data);
+            upgradeObject.ApplyUpgrades(data);
             currentLevel++;
         }
     }

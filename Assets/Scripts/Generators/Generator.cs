@@ -1,17 +1,15 @@
 using System;
 using System.Collections;
-using System.Security.Cryptography;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public class Generator : MonoBehaviour
+[RequireComponent(typeof(UpgradeManager))]
+public class Generator : MonoBehaviour, IGetUpgrades
 {
     public static event EventHandler<ResourceData> OnResourceGenerated;
 
     [SerializeField] private GeneratorTier tier;
     [SerializeField] private float generationAmount;
     [SerializeField] private float generationRateInSeconds;
-    [SerializeField] private GeneratorUpgradeManager upgradeManager;
 
     private float amountMultiplier = 1f;
     private float rateMultiplier = 1f;
@@ -20,24 +18,18 @@ public class Generator : MonoBehaviour
     private void Start()
     {
         isGenerating = true;
-        ListenToUpgradeEvents();
         StartCoroutine(GenerateResources());
     }
 
-    private void ListenToUpgradeEvents()
+    public void ApplyUpgrades(UpgradeData data)
     {
-        UpgradeFloat.OnFloatChanged += Handle_UpgradeFloat;
-    }
-
-    private void Handle_UpgradeFloat(object sender, UpgradeData e)
-    {
-        switch (e.type)
+        switch (data.type)
         {
-            case (GeneratorUpgrades.AmountBase):
-                IncreaseBaseAmount(e.value);
+            case (UpgradeTypes.AmountBase):
+                IncreaseBaseAmount(data.value);
                 break;
-            case (GeneratorUpgrades.RateMultiplierAdd):
-                IncreaseRateMultiplierFromBase(e.value);
+            case (UpgradeTypes.RateMultiplierAdd):
+                IncreaseRateMultiplierFromBase(data.value);
                 break;
         }
     }
@@ -81,15 +73,4 @@ public class Generator : MonoBehaviour
     {
         generationAmount += amount;
     }
-
-    public void UpgradeRate()
-    {
-        upgradeManager.LevelUpRate();
-    }
-
-    public void UpgradeAmount()
-    {
-        upgradeManager.LevelUpAmount();
-    }
-
 }

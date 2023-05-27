@@ -5,10 +5,13 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(TurretTargeting))]
-public class TurretShooting : MonoBehaviour
+public class TurretShooting : MonoBehaviour, IGetUpgrades
 {
-    [SerializeField] private int damage;
+    [SerializeField] private float damage;
     [SerializeField] private float firingDelayInSeconds;
+
+    private float damageMultiplier = 1f;
+    private float firingMultiplier = 1f;
     
     private TurretTargeting targeting;
     private Enemy target;
@@ -29,10 +32,33 @@ public class TurretShooting : MonoBehaviour
     {
         while (HasTarget())
         {
-            target.TakeDamage(damage);
-            yield return new WaitForSeconds(firingDelayInSeconds);
+            target.TakeDamage(damage * damageMultiplier);
+            yield return new WaitForSeconds(firingDelayInSeconds * firingMultiplier);
         }
     }
 
     private bool HasTarget() => target != null;
+
+    public void ApplyUpgrades(UpgradeData data)
+    {
+        switch (data.type)
+        {
+            case (UpgradeTypes.AmountBase):
+                IncreaseBaseAmount(data.value);
+                break;
+            case (UpgradeTypes.RateMultiplierAdd):
+                IncreaseRateMultiplierFromBase(data.value);
+                break;
+        }
+    }
+
+    private void IncreaseBaseAmount(float value)
+    {
+        damage += value;
+    }
+
+    private void IncreaseRateMultiplierFromBase(float value)
+    {
+        firingMultiplier -= value;
+    }
 }

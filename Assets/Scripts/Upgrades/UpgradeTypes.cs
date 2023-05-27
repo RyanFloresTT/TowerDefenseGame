@@ -1,4 +1,4 @@
-public enum GeneratorUpgrades
+public enum UpgradeTypes
 { 
     AmountBase,
     RateBase,
