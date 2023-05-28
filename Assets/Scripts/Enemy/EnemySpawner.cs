@@ -50,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
         {
             StartCoroutine(SpawnEnemies());
         }
+        e.ResetHealth();
         spawnPool.Return(enemy);
     }
 

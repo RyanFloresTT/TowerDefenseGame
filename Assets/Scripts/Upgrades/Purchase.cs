@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+
 public class Purchase : MonoBehaviour
 {
     [SerializeField] private GameObject objectToUnlock;
@@ -12,6 +14,7 @@ public class Purchase : MonoBehaviour
     [SerializeField] private GameObject unlockText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private GameObject costGroup;
+    [SerializeField] private GameObject thisMenu;
 
     private bool wasPurchased;
 
@@ -73,6 +76,6 @@ public class Purchase : MonoBehaviour
     private void ShowNextMenu()
     {
         nextMenu.SetActive(true);
-        gameObject.SetActive(false);
+        thisMenu.SetActive(false);
     }
 }

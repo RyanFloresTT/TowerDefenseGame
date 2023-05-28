@@ -28,10 +28,14 @@ public class UpgradeFloat : IUpgrade
 
     public ResourceData GetPurchasePrice()
     {
-        var cost = currentLevel * (costPerLevel + costIncreasePerLevel);
+        var cost = (currentLevel * (costPerLevel + costIncreasePerLevel)) - costPerLevel;
         var data = new ResourceData(resourceTierToUpgrade, cost);
         return data;
     }
+
+    public float GetCurrentValue() => totalFloatIncrease;
+
+    public float GetNextValue() => totalFloatIncrease + increasePerLevel;
 
     public bool IsAtMaxLevel() => currentLevel == maxLevel;
 }

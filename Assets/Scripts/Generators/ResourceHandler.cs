@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,10 @@ public class ResourceHandler : MonoBehaviour
     public static event EventHandler<IDictionary<GeneratorTier, float>> OnResouceCountChanged;
     public static event EventHandler<bool> OnSuccessfulPurchase;
 
-    [SerializeField] IDictionary<GeneratorTier, float> resourceMap;
+    [SerializeField] private GameObject errorText;
+    [SerializeField] private float errorTimeInSeconds;
+
+    private IDictionary<GeneratorTier, float> resourceMap;
 
     public static ResourceHandler Instance { get; set; }
 
@@ -50,7 +54,19 @@ public class ResourceHandler : MonoBehaviour
         else
         {
             return false;
-        }
+        }  
+    }
+
+    public void ShowErrorText()
+    {
+        errorText.SetActive(true);
+        StartCoroutine(HideErrorText());
+    }
+
+    private IEnumerator HideErrorText()
+    {
+        yield return new WaitForSecondsRealtime(errorTimeInSeconds);
+        errorText.SetActive(false);
     }
 
     private bool HasKeyAndRequiredAmount(ResourceData data) => resourceMap.ContainsKey(data.Tier) && data.Amount <= resourceMap[data.Tier];

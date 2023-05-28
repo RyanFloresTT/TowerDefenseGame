@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
+
 [RequireComponent(typeof(IGetUpgrades))]
 public class UpgradeManager : MonoBehaviour
 {
+    public event EventHandler OnUpgradeComplete;
+
     [SerializeField] private UpgradeFloat[] upgradeSlots;
 
     private IGetUpgrades upgradeObject;
@@ -25,9 +29,12 @@ public class UpgradeManager : MonoBehaviour
 
     public void LevelUpUpgrade(IUpgrade upgrade)
     {
-        if (!CanUpgrade(upgrade)) return;
+        if (!CanUpgrade(upgrade)) { resourceHandler.ShowErrorText(); return; };
+        OnUpgradeComplete?.Invoke(this, EventArgs.Empty);
         upgrade.Upgrade(upgradeObject);
     }
+
+    public UpgradeFloat[] GetUpgradeFloats() => upgradeSlots;
 
     public bool CanUpgrade(IUpgrade upgrade) => upgrade != null && !upgrade.IsAtMaxLevel() && resourceHandler.Purchase(upgrade.GetPurchasePrice());
 }

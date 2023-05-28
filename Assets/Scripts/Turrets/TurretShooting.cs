@@ -25,6 +25,7 @@ public class TurretShooting : MonoBehaviour, IGetUpgrades
     private void Handle_TargetChanged(object sender, Enemy e)
     {
         target = e;
+        StopAllCoroutines();
         StartCoroutine(FireLaser());
     }
 
@@ -32,8 +33,8 @@ public class TurretShooting : MonoBehaviour, IGetUpgrades
     {
         while (HasTarget())
         {
-            target.TakeDamage(damage * damageMultiplier);
             yield return new WaitForSeconds(firingDelayInSeconds * firingMultiplier);
+            target.TakeDamage(damage * damageMultiplier);
         }
     }
 

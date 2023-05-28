@@ -3,6 +3,8 @@ using System;using UnityEngine;
 public class Enemy : MonoBehaviour, ITakeDamage
 {
     public static event EventHandler<Enemy> OnEnemyDeath;
+    public event EventHandler<float> OnDamageTaken;
+
     [SerializeField] private float damage = 1;
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
@@ -27,10 +29,18 @@ public class Enemy : MonoBehaviour, ITakeDamage
     public void TakeDamage(float incomingDamage)
     {
         currentHealth -= incomingDamage;
+        var ratio = currentHealth / maxHealth;
+        OnDamageTaken?.Invoke(this, ratio);
         if (currentHealth <= 0)
         {
             KillEnemy();
         }
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        TakeDamage(0);
     }
 
     private void KillEnemy()
