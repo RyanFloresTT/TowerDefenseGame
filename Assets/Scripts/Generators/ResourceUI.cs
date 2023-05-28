@@ -24,7 +24,7 @@ public class ResourceUI : MonoBehaviour
         {
             var amount = data.ElementAt(i).Value.ToString();
             var tier = data.ElementAt(i).Key.ToString();
-            resourceCounts[i].text = (tier + " : " + amount);
+            resourceCounts[i].text = ("x" + amount);
         }
     }
 }

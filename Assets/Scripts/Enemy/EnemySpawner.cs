@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObjectPool spawnPool;
     [SerializeField] private Transform[] spawnLocations;
     [SerializeField] private Transform[] chaseLocations;
+    private Transform chaseTarget;
 
     private int enemyCount = 0;
 
@@ -15,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(SpawnEnemies());
         Enemy.OnEnemyDeath += Handle_EnemyDeath;
+        chaseTarget = chaseLocations[0];
     }
 
     private IEnumerator SpawnEnemies()
@@ -30,7 +32,13 @@ public class EnemySpawner : MonoBehaviour
     {
         var enemy = spawnPool.Get();
         enemy.transform.position = GetRandomTransformFromArray(spawnLocations).position;
-        enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(GetRandomTransformFromArray(chaseLocations));
+        if (GetRandomTransformFromArray(chaseLocations) != null)
+        {
+            enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(GetRandomTransformFromArray(chaseLocations));
+        } else
+        {
+            enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
+        }
         enemyCount++;
     }
 
