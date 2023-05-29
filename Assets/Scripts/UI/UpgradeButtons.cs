@@ -29,6 +29,7 @@ public class UpgradeButtons : MonoBehaviour
         upgradeCost.text = upgrade.GetPurchasePrice().Amount.ToString();    
         currentUpgradeValue.text = upgrade.GetCurrentValue().ToString();
         nextUpgradeValue.text = upgrade.GetNextValue().ToString();
+        CheckMaxLevel();
     }
 
     public void CheckMaxLevel()

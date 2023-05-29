@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe72389a71aa4c41964875f2a50a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToUnlock: {fileID: 0}
+  objectToUnlock: {fileID: 476234709}
   resourceTier: 2
   resourceCost: 300
   errorText: {fileID: 865428175}
@@ -843,7 +843,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 295159650}
   arrow: {fileID: 418574542}
   resourceImage: {fileID: 803995577}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 669699071}
 --- !u!114 &22300651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 669699071}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -903,18 +903,6 @@ MonoBehaviour:
       - m_Target: {fileID: 22300650}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 22300650}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1430,18 +1418,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 32755095}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &32755097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,18 +1730,6 @@ MonoBehaviour:
       - m_Target: {fileID: 49796706}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 49796706}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2313,14 +2277,14 @@ MonoBehaviour:
     resourceTierToUpgrade: 1
     increasePerLevel: 0.15
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
   - type: 0
     costPerLevel: 1
     costIncreasePerLevel: 1
     resourceTierToUpgrade: 1
     increasePerLevel: 0.2
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
 --- !u!114 &69708576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,18 +2794,6 @@ MonoBehaviour:
       - m_Target: {fileID: 86340758}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 86340758}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4336,18 +4288,6 @@ MonoBehaviour:
       - m_Target: {fileID: 170926015}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 170926015}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8347,7 +8287,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10218,14 +10158,14 @@ MonoBehaviour:
   - type: 3
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 3
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
   - type: 0
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 3
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
@@ -10448,7 +10388,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 530823930}
   arrow: {fileID: 2075362303}
   resourceImage: {fileID: 592713444}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 669699071}
 --- !u!114 &490831365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10493,7 +10433,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 669699071}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -10508,18 +10448,6 @@ MonoBehaviour:
       - m_Target: {fileID: 490831364}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 490831364}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11623,14 +11551,14 @@ MonoBehaviour:
     resourceTierToUpgrade: 0
     increasePerLevel: 0.15
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
   - type: 0
     costPerLevel: 1
     costIncreasePerLevel: 1
     resourceTierToUpgrade: 0
     increasePerLevel: 0.2
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
 --- !u!1 &554759083
 GameObject:
   m_ObjectHideFlags: 0
@@ -11813,7 +11741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe72389a71aa4c41964875f2a50a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToUnlock: {fileID: 0}
+  objectToUnlock: {fileID: 669699069}
   resourceTier: 0
   resourceCost: 100
   errorText: {fileID: 865428175}
@@ -13614,14 +13542,14 @@ MonoBehaviour:
   - type: 3
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 1
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
   - type: 0
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 1
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
@@ -14196,14 +14124,14 @@ MonoBehaviour:
     resourceTierToUpgrade: 2
     increasePerLevel: 0.15
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
   - type: 0
     costPerLevel: 1
     costIncreasePerLevel: 1
     resourceTierToUpgrade: 2
     increasePerLevel: 0.2
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
 --- !u!114 &725231230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15139,18 +15067,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 774244767}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &774244769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15947,18 +15863,6 @@ MonoBehaviour:
       - m_Target: {fileID: 828764058}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 828764058}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16961,18 +16865,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 885604932}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &885604934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17147,6 +17039,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902938904}
   m_CullTransparentMesh: 1
+--- !u!1 &906679076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906679077}
+  - component: {fileID: 906679078}
+  m_Layer: 5
+  m_Name: AbilityButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &906679077
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906679076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2060573984}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &906679078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906679076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &913195519
 GameObject:
   m_ObjectHideFlags: 0
@@ -18023,7 +17978,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -18031,18 +17986,6 @@ MonoBehaviour:
       - m_Target: {fileID: 954333672}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 954333672}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18559,18 +18502,6 @@ MonoBehaviour:
       - m_Target: {fileID: 976770588}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 976770588}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19868,18 +19799,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1035829371}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1035829373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20040,18 +19959,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1039049668}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1039049668}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20705,14 +20612,14 @@ MonoBehaviour:
     resourceTierToUpgrade: 0
     increasePerLevel: 1
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
   - type: 3
     costPerLevel: 1
     costIncreasePerLevel: 1
     resourceTierToUpgrade: 0
     increasePerLevel: 0.15
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
 --- !u!1 &1059013246
 GameObject:
   m_ObjectHideFlags: 0
@@ -26182,7 +26089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe72389a71aa4c41964875f2a50a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToUnlock: {fileID: 0}
+  objectToUnlock: {fileID: 1724842262}
   resourceTier: 1
   resourceCost: 200
   errorText: {fileID: 865428175}
@@ -28252,7 +28159,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 1829289598}
   arrow: {fileID: 1695201619}
   resourceImage: {fileID: 1180618865}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 1724842264}
 --- !u!114 &1478676788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28297,7 +28204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1724842264}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -28312,18 +28219,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1478676787}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1478676787}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28768,7 +28663,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 297617740}
   arrow: {fileID: 586048883}
   resourceImage: {fileID: 1867163797}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 1724842264}
 --- !u!114 &1518829823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28813,7 +28708,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1724842264}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -28828,18 +28723,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1518829822}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1518829822}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30380,14 +30263,14 @@ MonoBehaviour:
     resourceTierToUpgrade: 3
     increasePerLevel: 0.15
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
   - type: 0
     costPerLevel: 1
     costIncreasePerLevel: 1
     resourceTierToUpgrade: 3
     increasePerLevel: 0.2
     maxLevel: 5
-    currentLevel: 0
+    currentLevel: 1
 --- !u!114 &1633145667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30891,18 +30774,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1646635458}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1646635458}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31851,6 +31722,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695201619}
   m_CullTransparentMesh: 1
+--- !u!1 &1699202648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699202649}
+  - component: {fileID: 1699202652}
+  - component: {fileID: 1699202651}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1699202649
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699202648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2060573984}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1699202651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699202648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a4771f2cf68494470ab5d3d0bb83abad, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1699202652
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699202648}
+  m_CullTransparentMesh: 1
 --- !u!1 &1703688181
 GameObject:
   m_ObjectHideFlags: 0
@@ -31969,14 +31916,14 @@ MonoBehaviour:
   - type: 3
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 2
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
   - type: 0
     costPerLevel: 5
     costIncreasePerLevel: 1
-    resourceTierToUpgrade: 0
+    resourceTierToUpgrade: 2
     increasePerLevel: 1
     maxLevel: 5
     currentLevel: 1
@@ -32057,7 +32004,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 1646363097}
   arrow: {fileID: 1745492131}
   resourceImage: {fileID: 1784550095}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 476234711}
 --- !u!114 &1728063796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32102,7 +32049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 476234711}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -32117,18 +32064,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1728063795}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1728063795}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37371,6 +37306,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993931082}
   m_CullTransparentMesh: 1
+--- !u!1 &1998443793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1998443794}
+  m_Layer: 0
+  m_Name: LightningStrikes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1998443794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998443793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144851165}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1999305425
 GameObject:
   m_ObjectHideFlags: 0
@@ -38130,6 +38096,7 @@ RectTransform:
   - {fileID: 913724470}
   - {fileID: 865428176}
   - {fileID: 571898386}
+  - {fileID: 2060573984}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39053,6 +39020,63 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &2060573983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060573984}
+  - component: {fileID: 2060573985}
+  m_Layer: 5
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2060573984
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060573983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1699202649}
+  - {fileID: 906679077}
+  m_Father: {fileID: 2030252699}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 550, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2060573985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060573983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9865dcd71f8e18d438d5bfe3cede0493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: 9d84acd55a9674f489910dda14aa32ed, type: 2}
+  - {fileID: 11400000, guid: 8375dd587c0db9c4b9834a5eb536dbc4, type: 2}
+  abilityButtonPrefab: {fileID: 796972462361294317, guid: 9b6ff7ecf2a13a344886e9a4b545b798,
+    type: 3}
+  abilityContainer: {fileID: 906679077}
 --- !u!1 &2063891102
 GameObject:
   m_ObjectHideFlags: 0
@@ -39115,7 +39139,7 @@ MonoBehaviour:
   nextUpgradeValue: {fileID: 1872896559}
   arrow: {fileID: 1781661026}
   resourceImage: {fileID: 1443008055}
-  upgradeableObject: {fileID: 0}
+  upgradeableObject: {fileID: 476234711}
 --- !u!114 &2063891105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39160,7 +39184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 476234711}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: LevelUpSlot
         m_Mode: 3
@@ -39175,18 +39199,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2063891104}
         m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
         m_MethodName: UpdateUIText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2063891104}
-        m_TargetAssemblyTypeName: UpgradeButtons, Assembly-CSharp
-        m_MethodName: CheckMaxLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40922,6 +40934,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 404499495}
+  - {fileID: 1998443794}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

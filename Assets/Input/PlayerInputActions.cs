@@ -35,6 +35,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""890ec7b1-cbdf-40da-b710-0921a7e7625a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""OpenPurchaseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9bc11fcb-55df-4b61-970e-e402b936bac2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02ffed9a-e8fb-48cb-beda-fceb71dffc38"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +88,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_OpenPurchaseMenu = m_Player.FindAction("OpenPurchaseMenu", throwIfNotFound: true);
+        m_Player_LeftClick = m_Player.FindAction("LeftClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +151,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_OpenPurchaseMenu;
+    private readonly InputAction m_Player_LeftClick;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @OpenPurchaseMenu => m_Wrapper.m_Player_OpenPurchaseMenu;
+        public InputAction @LeftClick => m_Wrapper.m_Player_LeftClick;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +170,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenPurchaseMenu.started += instance.OnOpenPurchaseMenu;
             @OpenPurchaseMenu.performed += instance.OnOpenPurchaseMenu;
             @OpenPurchaseMenu.canceled += instance.OnOpenPurchaseMenu;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -143,6 +180,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenPurchaseMenu.started -= instance.OnOpenPurchaseMenu;
             @OpenPurchaseMenu.performed -= instance.OnOpenPurchaseMenu;
             @OpenPurchaseMenu.canceled -= instance.OnOpenPurchaseMenu;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -163,5 +203,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnOpenPurchaseMenu(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
     }
 }
