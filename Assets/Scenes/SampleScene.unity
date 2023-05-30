@@ -20542,6 +20542,7 @@ GameObject:
   - component: {fileID: 1054495306}
   - component: {fileID: 1054495307}
   - component: {fileID: 1054495308}
+  - component: {fileID: 1054495309}
   m_Layer: 0
   m_Name: HUB
   m_TagString: Untagged
@@ -20620,6 +20621,23 @@ MonoBehaviour:
     increasePerLevel: 0.15
     maxLevel: 5
     currentLevel: 1
+--- !u!114 &1054495309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054495304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9865dcd71f8e18d438d5bfe3cede0493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 0}
+  abilityButtonPrefab: {fileID: 796972462361294317, guid: 9b6ff7ecf2a13a344886e9a4b545b798,
+    type: 3}
+  abilityContainer: {fileID: 906679077}
 --- !u!1 &1059013246
 GameObject:
   m_ObjectHideFlags: 0
@@ -39029,7 +39047,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060573984}
-  - component: {fileID: 2060573985}
   m_Layer: 5
   m_Name: Abilities
   m_TagString: Untagged
@@ -39059,24 +39076,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 550, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2060573985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060573983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9865dcd71f8e18d438d5bfe3cede0493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilities:
-  - {fileID: 11400000, guid: 9d84acd55a9674f489910dda14aa32ed, type: 2}
-  - {fileID: 11400000, guid: 8375dd587c0db9c4b9834a5eb536dbc4, type: 2}
-  abilityButtonPrefab: {fileID: 796972462361294317, guid: 9b6ff7ecf2a13a344886e9a4b545b798,
-    type: 3}
-  abilityContainer: {fileID: 906679077}
 --- !u!1 &2063891102
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Deselect",
+                    "type": "Button",
+                    "id": "cda7bb92-5836-4493-80b0-15eff377f4b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,12 +58,12 @@
                 },
                 {
                     "name": "",
-                    "id": "02ffed9a-e8fb-48cb-beda-fceb71dffc38",
-                    "path": "<Keyboard>/f",
+                    "id": "875fb4cc-07eb-4056-ab42-facbf82fe861",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LeftClick",
+                    "action": "Deselect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -18,7 +18,14 @@ public class AbilityManager : MonoBehaviour
     {
         inputActions = new();
         inputActions.Player.LeftClick.performed += Handle_LeftClick;
+        inputActions.Player.Deselect.performed += Handle_Deselect_Performed;
         Instance = this;
+    }
+
+    private void Handle_Deselect_Performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        currentAbilityButton?.DeselectAbility();
+        currentAbility = null;
     }
 
     private void Start()
@@ -34,17 +41,17 @@ public class AbilityManager : MonoBehaviour
 
     private void OnEnable()
     {
-        inputActions.Player.LeftClick.Enable();
+        inputActions.Player.Enable();
     }
 
     private void OnDisable()
     {
-        inputActions.Player.LeftClick.Disable();
+        inputActions.Player.Disable();
     }
 
     private void Handle_LeftClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        currentAbility?.StartAbility();
+        currentAbilityButton?.Activate();
     }
 
     public void ChangeSelectedAbility(AbilityButton abilityButton)

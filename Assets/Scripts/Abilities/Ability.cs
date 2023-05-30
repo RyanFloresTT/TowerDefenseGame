@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public abstract class Ability : ScriptableObject
+[Serializable]
+public abstract class Ability : MonoBehaviour
 {
     public abstract void Initialize();
     public abstract void StartAbility();

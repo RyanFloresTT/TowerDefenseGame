@@ -44,6 +44,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Deselect"",
+                    ""type"": ""Button"",
+                    ""id"": ""cda7bb92-5836-4493-80b0-15eff377f4b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -71,12 +80,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""02ffed9a-e8fb-48cb-beda-fceb71dffc38"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""id"": ""875fb4cc-07eb-4056-ab42-facbf82fe861"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LeftClick"",
+                    ""action"": ""Deselect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -89,6 +98,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_OpenPurchaseMenu = m_Player.FindAction("OpenPurchaseMenu", throwIfNotFound: true);
         m_Player_LeftClick = m_Player.FindAction("LeftClick", throwIfNotFound: true);
+        m_Player_Deselect = m_Player.FindAction("Deselect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -152,12 +162,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_OpenPurchaseMenu;
     private readonly InputAction m_Player_LeftClick;
+    private readonly InputAction m_Player_Deselect;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @OpenPurchaseMenu => m_Wrapper.m_Player_OpenPurchaseMenu;
         public InputAction @LeftClick => m_Wrapper.m_Player_LeftClick;
+        public InputAction @Deselect => m_Wrapper.m_Player_Deselect;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -173,6 +185,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LeftClick.started += instance.OnLeftClick;
             @LeftClick.performed += instance.OnLeftClick;
             @LeftClick.canceled += instance.OnLeftClick;
+            @Deselect.started += instance.OnDeselect;
+            @Deselect.performed += instance.OnDeselect;
+            @Deselect.canceled += instance.OnDeselect;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -183,6 +198,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LeftClick.started -= instance.OnLeftClick;
             @LeftClick.performed -= instance.OnLeftClick;
             @LeftClick.canceled -= instance.OnLeftClick;
+            @Deselect.started -= instance.OnDeselect;
+            @Deselect.performed -= instance.OnDeselect;
+            @Deselect.canceled -= instance.OnDeselect;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -204,5 +222,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnOpenPurchaseMenu(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);
+        void OnDeselect(InputAction.CallbackContext context);
     }
 }
