@@ -2,6 +2,6 @@ using System;
 
 public interface ITakeDamage
 {
-    public event EventHandler<float> OnDamageTaken;
+    public event Action<float> OnDamageTaken;
     public void TakeDamage(float damage);
 }

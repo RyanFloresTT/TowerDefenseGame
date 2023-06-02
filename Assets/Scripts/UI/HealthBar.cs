@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    private void Handle_OnDamageTaken(object sender, float e)
+    private void Handle_OnDamageTaken(float e)
     {
         healthBar.value = e;
     }

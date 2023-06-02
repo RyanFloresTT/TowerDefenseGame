@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ResourceHandler : MonoBehaviour
 {
-    public static event EventHandler<IDictionary<GeneratorTier, float>> OnResouceCountChanged;
-    public static event EventHandler<bool> OnSuccessfulPurchase;
+    public static event Action<IDictionary<GeneratorTier, float>> OnResouceCountChanged;
+    public static event Action<bool> OnSuccessfulPurchase;
 
     [SerializeField] private GameObject errorText;
     [SerializeField] private float errorTimeInSeconds;
@@ -26,7 +26,7 @@ public class ResourceHandler : MonoBehaviour
         resourceMap = new Dictionary<GeneratorTier, float>();
     }
 
-    private void Handle_ResourceGenerated(object sender, ResourceData data)
+    private void Handle_ResourceGenerated(ResourceData data)
     {
         AddResourceToDictionary(data);
     }
@@ -40,7 +40,7 @@ public class ResourceHandler : MonoBehaviour
         {
             resourceMap.Add(data.Tier, data.Amount);
         }
-        OnResouceCountChanged?.Invoke(this, resourceMap);
+        OnResouceCountChanged?.Invoke(resourceMap);
     }
 
     public bool Purchase(ResourceData data)
@@ -48,7 +48,7 @@ public class ResourceHandler : MonoBehaviour
         if (HasKeyAndRequiredAmount(data))
         {
             resourceMap[data.Tier] -= data.Amount;
-            OnResouceCountChanged?.Invoke(this, resourceMap);
+            OnResouceCountChanged?.Invoke(resourceMap);
             return true;
         }
         else

@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
         enemyCount++;
     }
 
-    private void Handle_EnemyDeath(object sender, Enemy e)
+    private void Handle_EnemyDeath(Enemy e)
     {   
         var enemy = e.gameObject;
         enemyCount--;

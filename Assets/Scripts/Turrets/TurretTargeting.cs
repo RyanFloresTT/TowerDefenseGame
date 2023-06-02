@@ -7,7 +7,7 @@ public class TurretTargeting : MonoBehaviour
 {
     [SerializeField] private TargetEnemyWithinRange targetingSource;
 
-    public event EventHandler<Enemy> OnCurrentTargetChanged;
+    public event Action<Enemy> OnCurrentTargetChanged;
     
     private List<Enemy> enemies;
     private Enemy target;
@@ -19,13 +19,13 @@ public class TurretTargeting : MonoBehaviour
         enemies = new();
     }
     
-    private void Handle_TargetEnteredRange(object sender, Enemy e)
+    private void Handle_TargetEnteredRange(Enemy e)
     {
         Debug.Log("Target Acquired");
         enemies.Add(e);
     }
 
-    private void Handle_EnemyDestroyed(object sender, Enemy e)
+    private void Handle_EnemyDestroyed(Enemy e)
     {
         enemies.Remove(e);
     }
@@ -35,7 +35,7 @@ public class TurretTargeting : MonoBehaviour
         if (TargetChanged())
         {
             target = TargetingHelper.TargetClosestEnemy(enemies, transform);
-            OnCurrentTargetChanged?.Invoke(this, target);
+            OnCurrentTargetChanged?.Invoke(target);
         }
     }
 

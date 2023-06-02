@@ -2,8 +2,8 @@ using System;using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakeDamage
 {
-    public static event EventHandler<Enemy> OnEnemyDeath;
-    public event EventHandler<float> OnDamageTaken;
+    public static event Action<Enemy> OnEnemyDeath;
+    public event Action<float> OnDamageTaken;
 
     [SerializeField] private float damage = 1;
     [SerializeField] private float maxHealth;
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         currentHealth -= incomingDamage;
         var ratio = currentHealth / maxHealth;
-        OnDamageTaken?.Invoke(this, ratio);
+        OnDamageTaken?.Invoke(ratio);
         if (currentHealth <= 0)
         {
             KillEnemy();
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private void KillEnemy()
     {
-        OnEnemyDeath?.Invoke(this, this);
+        OnEnemyDeath?.Invoke(this);
     }
 
     private bool IsNonEnemyDamageable(GameObject go) =>

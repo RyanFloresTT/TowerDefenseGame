@@ -22,7 +22,7 @@ public class TurretShooting : MonoBehaviour, IGetUpgrades
         targeting.OnCurrentTargetChanged += Handle_TargetChanged;
     }
 
-    private void Handle_TargetChanged(object sender, Enemy e)
+    private void Handle_TargetChanged(Enemy e)
     {
         target = e;
         StopAllCoroutines();

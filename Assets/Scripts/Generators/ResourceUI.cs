@@ -13,7 +13,7 @@ public class ResourceUI : MonoBehaviour
         ResourceHandler.OnResouceCountChanged += Handle_ResourceCountChanged;
     }
 
-    private void Handle_ResourceCountChanged(object sender, IDictionary<GeneratorTier, float> e)
+    private void Handle_ResourceCountChanged(IDictionary<GeneratorTier, float> e)
     {
         UpdateText(e);
     }

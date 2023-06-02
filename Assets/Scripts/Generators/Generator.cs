@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(UpgradeManager))]
 public class Generator : MonoBehaviour, IGetUpgrades
 {
-    public static event EventHandler<ResourceData> OnResourceGenerated;
+    public static event Action<ResourceData> OnResourceGenerated;
 
     [SerializeField] private GeneratorTier tier;
     [SerializeField] private float generationAmount;
@@ -46,7 +46,7 @@ public class Generator : MonoBehaviour, IGetUpgrades
     private void Generate()
     {
         var resource = new ResourceData(tier, generationAmount * amountMultiplier);
-        OnResourceGenerated?.Invoke(this, resource);
+        OnResourceGenerated?.Invoke(resource);
     }
 
     public void SetGenerationStatus(bool willGenerate)

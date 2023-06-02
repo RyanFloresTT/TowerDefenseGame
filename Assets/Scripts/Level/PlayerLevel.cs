@@ -24,7 +24,7 @@ public class PlayerLevel : MonoBehaviour
         UpdateUI();
     }
 
-    private void Handle_EnemyDeath(object sender, Enemy e)
+    private void Handle_EnemyDeath(Enemy e)
     {
         currentXP += xpGivenPerDeath;
         if (currentXP >= xpNeededPerLevel)

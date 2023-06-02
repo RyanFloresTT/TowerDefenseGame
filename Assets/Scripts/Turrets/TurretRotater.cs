@@ -15,7 +15,7 @@ public class TurretRotater : MonoBehaviour
         targeting.OnCurrentTargetChanged += Handle_TargetChanged;
     }
 
-    private void Handle_TargetChanged(object sender, Enemy e)
+    private void Handle_TargetChanged(Enemy e)
     {
         target = e;
     }

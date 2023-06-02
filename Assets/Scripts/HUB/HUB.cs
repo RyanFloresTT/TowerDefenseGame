@@ -4,7 +4,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class HUB : MonoBehaviour, ITakeDamage, IGetUpgrades
 {
-    public event EventHandler<float> OnDamageTaken;
+    public event Action<float> OnDamageTaken;
 
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
@@ -19,7 +19,7 @@ public class HUB : MonoBehaviour, ITakeDamage, IGetUpgrades
     {
         currentHealth -= damage - (damage * armor);
         var ratio = currentHealth / maxHealth;
-        OnDamageTaken?.Invoke(this, ratio);
+        OnDamageTaken?.Invoke(ratio);
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
