@@ -125,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 796972462361294317}
         m_TargetAssemblyTypeName: AbilityButton, Assembly-CSharp
-        m_MethodName: CheckActiveStatus
+        m_MethodName: SelectAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
