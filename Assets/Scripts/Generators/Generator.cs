@@ -6,6 +6,7 @@ using UnityEngine;
 public class Generator : MonoBehaviour, IGetUpgrades
 {
     public static event Action<ResourceData> OnResourceGenerated;
+    public Action<float> OnRateChanged;
 
     [SerializeField] private GeneratorTier tier;
     [SerializeField] private float generationAmount;
@@ -26,10 +27,10 @@ public class Generator : MonoBehaviour, IGetUpgrades
         switch (data.type)
         {
             case (UpgradeTypes.AmountBase):
-                IncreaseBaseAmount(data.value);
+                ChangeBaseAmount(data.value);
                 break;
             case (UpgradeTypes.RateMultiplierAdd):
-                IncreaseRateMultiplierFromBase(data.value);
+                ChangeRateMultiplier(data.value);
                 break;
         }
     }
@@ -54,23 +55,11 @@ public class Generator : MonoBehaviour, IGetUpgrades
         isGenerating = willGenerate;
     }
 
-    private void IncreaseAmountMultiplierFromBase(float amount)
+    private void ChangeAmountMultiplier(float amount) => amountMultiplier += amount;
+    private void ChangeRateMultiplier(float amount)
     {
-        amountMultiplier = 1 + amount;
+        rateMultiplier += amount;
+        OnRateChanged?.Invoke(rateMultiplier);
     }
-
-    private void IncreaseRateMultiplierFromBase(float amount)
-    {
-        rateMultiplier = 1 + amount;
-    }
-
-    private void DecreaseBaseRate(float amount)
-    {
-        generationRateInSeconds -= amount;
-    }
-
-    private void IncreaseBaseAmount(float amount)
-    {
-        generationAmount += amount;
-    }
+    private void ChangeBaseAmount(float amount) => generationAmount += amount;
 }
