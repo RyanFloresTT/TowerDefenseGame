@@ -26,10 +26,18 @@ public class UpgradeButtons : MonoBehaviour
 
     public void UpdateUIText()
     {
-        upgradeCost.text = upgrade.GetPurchasePrice().Amount.ToString();    
-        currentUpgradeValue.text = upgrade.GetCurrentValue().ToString();
-        nextUpgradeValue.text = upgrade.GetNextValue().ToString();
+        upgradeCost.text = upgrade.GetPurchasePrice().Amount.ToString();
+        UpdateValues();
         CheckMaxLevel();
+    }
+
+    private void UpdateValues()
+    {
+        var currentValuePercentage = (upgrade.GetCurrentValue() * 100).ToString();
+        currentUpgradeValue.text = (currentValuePercentage + "%");
+
+        var nextValuePercentage = (upgrade.GetNextValue() * 100).ToString();
+        nextUpgradeValue.text = (nextValuePercentage + "%");
     }
 
     public void CheckMaxLevel()
