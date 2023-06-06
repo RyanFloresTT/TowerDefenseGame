@@ -5,6 +5,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class HUB : MonoBehaviour, ITakeDamage, IGetUpgrades
 {
     public event Action<float> OnDamageTaken;
+    public event Action OnHubDestroyed;
 
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
@@ -54,6 +55,11 @@ public class HUB : MonoBehaviour, ITakeDamage, IGetUpgrades
         var ratio = currentHealth / maxHealth;
         maxHealth += value;
         currentHealth = maxHealth * ratio;
+    }
+
+    private void OnDestroy()
+    {
+        OnHubDestroyed?.Invoke();
     }
 
 }
