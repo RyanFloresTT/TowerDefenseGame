@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc230454380018641b0f98707891e772, type: 3}
   m_Name: SoundClips
   m_EditorClassIdentifier: 
-  <Music>k__BackingField: {fileID: 0}
+  <Music>k__BackingField: {fileID: 8300000, guid: 16672ee6e15b6384bbfa402181e7ee0e,
+    type: 3}
   <EnemyDeath>k__BackingField: {fileID: 0}
   <Purchase>k__BackingField: {fileID: 0}
   <LevelUp>k__BackingField: {fileID: 0}

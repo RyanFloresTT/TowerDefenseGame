@@ -16,8 +16,9 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         Enemy.OnEnemyDeath += Handle_EnemyDeath;
-        source.PlayOneShot(sounds.Music);
-        source.volume = 1.0f;
+        source.clip = sounds.Music;
+        if (source.isPlaying) return;
+        source.Play();
     }
 
     private void Handle_EnemyDeath(Enemy obj)
