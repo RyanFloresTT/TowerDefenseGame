@@ -31324,7 +31324,7 @@ MonoBehaviour:
   maxEnemyCount: 5
   spawnDelayInSeconds: 2
   spawnPool:
-    prefab: {fileID: 1389434967836388791, guid: e00b8f37041f5e749acdd3e5c0a6be12,
+    prefab: {fileID: 6723921166342042708, guid: af750a7a500241f43bc94cf26ed5d556,
       type: 3}
     initialPoolAmount: 10
     bufferAmount: 5
