@@ -4,14 +4,15 @@ public class SurvivorUpgrades : MonoBehaviour, IHaveUpgrades
 {
     [SerializeField] GameObject upgradeCanvas;
 
-    bool isActive;
     void Awake() {
-        isActive = false;
-        upgradeCanvas.SetActive(isActive);
+        HideCanvas();
     }
-    public void ToggleCanvas() {
-        Debug.Log(isActive);
-        isActive = !isActive;
-        upgradeCanvas.SetActive(isActive);
+
+    public void ShowCanvas() {
+        upgradeCanvas.SetActive(true);
+    }
+
+    public void HideCanvas() {
+        upgradeCanvas.SetActive(false);
     }
 }

@@ -1,4 +1,5 @@
 public interface IHaveUpgrades
 {
-    public void ToggleCanvas();
+    public void HideCanvas();
+    public void ShowCanvas();
 }
