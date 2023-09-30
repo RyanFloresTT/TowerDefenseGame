@@ -5,31 +5,36 @@ public class TurretRotater : MonoBehaviour
 {
     [SerializeField] float rotationSpeed;
 
-    private TurretTargeting targeting;
-    private Enemy target;
+    TurretTargeting targeting;
+    Enemy target;
 
-    private void Start() {
+    void Start() {
         targeting = GetComponent<TurretTargeting>();
         targeting.OnCurrentTargetChanged += Handle_TargetChanged;
     }
 
-    private void Handle_TargetChanged(Enemy e) {
+    void Handle_TargetChanged(Enemy e) {
         target = e;
     }
 
-    private void Update() {
+    void Update() {
         if (HasTarget()) {
-            LooKAtTarget();
+            LookAtTarget();
         }
     }
-    private void LooKAtTarget() {
+    void LookAtTarget()
+    {
         var lookPos = target.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(lookPos, Vector3.up);
-        float eulerY = lookRotation.eulerAngles.y;
+
+        float targetYRotation = lookRotation.eulerAngles.y;
+
+        Quaternion targetRotation = Quaternion.Euler(0f, targetYRotation, 0f);
 
         float step = rotationSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, step);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, step);
     }
 
-    private bool HasTarget() => target != null;
+
+    bool HasTarget() => target != null;
 }
