@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Music>k__BackingField: {fileID: 8300000, guid: 16672ee6e15b6384bbfa402181e7ee0e,
     type: 3}
-  <EnemyDeath>k__BackingField: {fileID: 0}
-  <Purchase>k__BackingField: {fileID: 0}
-  <LevelUp>k__BackingField: {fileID: 0}
+  <EnemyDeath>k__BackingField: {fileID: 8300000, guid: c7c994bccad10a048a02dd816321e209,
+    type: 3}
+  <EnemyHurt>k__BackingField:
+  - {fileID: 8300000, guid: 49753482663e6bf4bb2747544a984b65, type: 3}
+  - {fileID: 8300000, guid: c45e29895f5a5114ab401feeb8f4fa71, type: 3}
+  - {fileID: 8300000, guid: 961516b74364f1048bc26d0918340def, type: 3}
+  <Purchase>k__BackingField: {fileID: 8300000, guid: 33713d31432863a4c8816d57af275124,
+    type: 3}
+  <LevelUp>k__BackingField: {fileID: 8300000, guid: 21428a559622c3a43abb0e3f23faf335,
+    type: 3}

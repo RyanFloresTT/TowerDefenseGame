@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(IGetUpgrades))]
 public class UpgradeManager : MonoBehaviour
 {
-    public event EventHandler OnUpgradeComplete;
+    public Action OnUpgradeComplete;
 
     [SerializeField] private UpgradeFloat[] upgradeSlots;
 
@@ -30,7 +30,7 @@ public class UpgradeManager : MonoBehaviour
     public void LevelUpUpgrade(IUpgrade upgrade)
     {
         if (!CanUpgrade(upgrade)) { resourceHandler.ShowErrorText(); return; };
-        OnUpgradeComplete?.Invoke(this, EventArgs.Empty);
+        OnUpgradeComplete?.Invoke();
         upgrade.Upgrade(upgradeObject);
     }
 

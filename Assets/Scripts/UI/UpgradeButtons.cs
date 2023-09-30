@@ -19,7 +19,7 @@ public class UpgradeButtons : MonoBehaviour
         UpdateUIText();
     }
 
-    private void Handle_UpgradeComplete(object sender, System.EventArgs e)
+    private void Handle_UpgradeComplete()
     {
         UpdateUIText();
     }

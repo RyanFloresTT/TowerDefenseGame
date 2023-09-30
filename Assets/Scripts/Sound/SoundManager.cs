@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +7,61 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private SoundClips sounds;
-    private AudioSource source;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
 
-    private void Awake()
-    {
-        source = GetComponent<AudioSource>();
-    }
+    public static SoundManager Instance { get; set; }
 
-    private void Start()
+    void Awake()
     {
+        InitializeSingleton();
+
         Enemy.OnEnemyDeath += Handle_EnemyDeath;
-        source.clip = sounds.Music;
-        if (source.isPlaying) return;
-        source.Play();
+        Enemy.OnEnemySurvivedDamage += Handle_EnemySurvived;
+        ResourceHandler.OnSuccessfulPurchase += Handle_SuccessPurchase;
+        PlayerLevel.OnPlayerLeveledUp += Handle_PlayerLevelUp;
+
+        PlayMusic();
     }
 
-    private void Handle_EnemyDeath(Enemy obj)
+    void InitializeSingleton()
     {
-        source.PlayOneShot(sounds.EnemyDeath);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
+    void Handle_EnemySurvived()
+    {
+        sfxSource.PlayOneShot(sounds.EnemyHurt.RandomElement<AudioClip>());
+    }
+
+    void Handle_PlayerLevelUp()
+    {
+        sfxSource.PlayOneShot(sounds.LevelUp);
+    }
+
+    void PlayMusic() { 
+        musicSource.clip = sounds.Music;
+        if (musicSource.isPlaying) return;
+        musicSource.Play();
+    }
+
+    void Handle_SuccessPurchase()
+    {
+        sfxSource.PlayOneShot(sounds.Purchase);
+    }
+
+    void Handle_EnemyDeath(Enemy obj)
+    {
+        sfxSource.PlayOneShot(sounds.EnemyDeath);
+    }
+
+   
 }

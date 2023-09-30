@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +13,8 @@ public class PlayerLevel : MonoBehaviour
 
     private float currentXP;
     private int currentLevel;
+
+    public static Action OnPlayerLeveledUp;
 
     private void Start()
     {
@@ -39,6 +39,7 @@ public class PlayerLevel : MonoBehaviour
         currentLevel++;
         xpNeededPerLevel += xpRequirementIncreasePerLevel;
         currentXP = 0;
+        OnPlayerLeveledUp?.Invoke();
     }
 
     private void UpdateUI()

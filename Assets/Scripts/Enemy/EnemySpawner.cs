@@ -46,13 +46,13 @@ public class EnemySpawner : MonoBehaviour
     {   
         var enemy = e.gameObject;
         enemyCount--;
+        e.ResetHealth();
+        spawnPool.Return(enemy);
         if (enemyCount < maxEnemyCount)
         {
             StartCoroutine(SpawnEnemies());
         }
-        e.ResetHealth();
-        spawnPool.Return(enemy);
     }
 
-    private Transform GetRandomTransformFromArray(Transform[] transforms) => transforms[UnityEngine.Random.Range(0, transforms.Length -1)];
+    private Transform GetRandomTransformFromArray(Transform[] transforms) => transforms[UnityEngine.Random.Range(0, transforms.Length)];
 }

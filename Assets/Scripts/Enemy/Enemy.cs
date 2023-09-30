@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 {
     public static event Action<Enemy> OnEnemyDeath;
     public event Action<float> OnDamageTaken;
+    public static Action OnEnemySurvivedDamage;
 
     [SerializeField] private float damage = 1;
     [SerializeField] private float maxHealth;
@@ -34,6 +35,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
         if (currentHealth <= 0)
         {
             KillEnemy();
+        } else
+        {
+            OnEnemySurvivedDamage?.Invoke();
         }
     }
 

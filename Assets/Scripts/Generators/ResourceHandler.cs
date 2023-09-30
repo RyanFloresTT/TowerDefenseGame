@@ -6,7 +6,7 @@ using UnityEngine;
 public class ResourceHandler : MonoBehaviour
 {
     public static event Action<IDictionary<GeneratorTier, float>> OnResouceCountChanged;
-    public static event Action<bool> OnSuccessfulPurchase;
+    public static event Action OnSuccessfulPurchase;
 
     [SerializeField] private GameObject errorText;
     [SerializeField] private float errorTimeInSeconds;
@@ -49,6 +49,7 @@ public class ResourceHandler : MonoBehaviour
         {
             resourceMap[data.Tier] -= data.Amount;
             OnResouceCountChanged?.Invoke(resourceMap);
+            OnSuccessfulPurchase?.Invoke();
             return true;
         }
         else
