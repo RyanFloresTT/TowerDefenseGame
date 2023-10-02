@@ -17,12 +17,15 @@ public class SoundManager : MonoBehaviour
         InitializeSingleton();
 
         Enemy.OnEnemyDeath += Handle_EnemyDeath;
-        Enemy.OnEnemySurvivedDamage += Handle_EnemySurvived;
+        SurvivorShooting.OnSurvivorShotGunSFX += Handle_SurvivorShot;
         ResourceHandler.OnSuccessfulPurchase += Handle_SuccessPurchase;
         PlayerLevel.OnPlayerLeveledUp += Handle_PlayerLevelUp;
 
+
         PlayMusic();
     }
+
+    
 
     void InitializeSingleton()
     {
@@ -35,6 +38,10 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Handle_SurvivorShot()
+    {
+        sfxSource.PlayOneShot(sounds.Gunshot);
     }
 
     void Handle_EnemySurvived()

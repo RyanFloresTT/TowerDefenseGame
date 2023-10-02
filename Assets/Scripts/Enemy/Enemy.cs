@@ -1,4 +1,5 @@
-using System;using UnityEngine;
+using System;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakeDamage
 {
@@ -6,52 +7,44 @@ public class Enemy : MonoBehaviour, ITakeDamage
     public event Action<float> OnDamageTaken;
     public static Action OnEnemySurvivedDamage;
 
-    [SerializeField] private float damage = 1;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] float damage = 1;
+    [SerializeField] float maxHealth;
+    [SerializeField] float currentHealth;
 
-    private void Start()
-    {
+    void Start() {
         currentHealth = maxHealth;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other) {
         DoDamageToNonEnemyUnit(other.gameObject);
     }
 
-    private void DoDamageToNonEnemyUnit(GameObject unit)
-    {
+    void DoDamageToNonEnemyUnit(GameObject unit) {
         if (!IsNonEnemyDamageable(unit)) return;
         unit.GetComponent<ITakeDamage>().TakeDamage(damage);
         KillEnemy();
     }
 
-    public void TakeDamage(float incomingDamage)
-    {
+    public void TakeDamage(float incomingDamage) {
         currentHealth -= incomingDamage;
         var ratio = currentHealth / maxHealth;
         OnDamageTaken?.Invoke(ratio);
-        if (currentHealth <= 0)
-        {
+        if (currentHealth <= 0) {
             KillEnemy();
-        } else
-        {
+        } else {
             OnEnemySurvivedDamage?.Invoke();
         }
     }
 
-    public void ResetHealth()
-    {
+    public void ResetHealth() {
         currentHealth = maxHealth;
         TakeDamage(0);
     }
 
-    private void KillEnemy()
-    {
+    void KillEnemy() {
         OnEnemyDeath?.Invoke(this);
     }
 
-    private bool IsNonEnemyDamageable(GameObject go) =>
+    bool IsNonEnemyDamageable(GameObject go) =>
         go.GetComponent<Enemy>() == null && go.GetComponent<ITakeDamage>() != null;
 }

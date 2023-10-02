@@ -24,3 +24,5 @@ MonoBehaviour:
     type: 3}
   <LevelUp>k__BackingField: {fileID: 8300000, guid: 21428a559622c3a43abb0e3f23faf335,
     type: 3}
+  <Gunshot>k__BackingField: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3,
+    type: 3}

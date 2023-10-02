@@ -15,9 +15,10 @@ public class EnemySpawner : MonoBehaviour {
     int killedEnemies;
 
     public static Action OnWaveCleared;
+    public static Action<int> OnWaveStarted;
 
     void Start() {
-        TargetEnemyWithinRange.OnTargetClearedFromSurvivor += Handle_EnemyDeath;
+        Enemy.OnEnemyDeath += Handle_EnemyDeath;
         chaseTarget = hubLocation;
         enemyCount = 0;
         killedEnemies = 0;
@@ -26,20 +27,21 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     void StartWave() {
+        OnWaveStarted?.Invoke(level.WaveIndex + 1);
+        maxEnemyCount = level.CurrentWave.RequiredKills;
+        enemyCount = 0;
+        killedEnemies = 0;
         StartCoroutine(DelayUntilNextWave());
     }
 
     IEnumerator DelayUntilNextWave() {
         yield return new WaitForSeconds(level.CurrentWave.Delay);
-        maxEnemyCount = level.CurrentWave.RequiredKills;
-        enemyCount = 0;
-        killedEnemies = 0;
         StartCoroutine(SpawnEnemies());
 
     }
     IEnumerator SpawnEnemies()
     {
-        while (enemyCount <= maxEnemyCount) {
+        while (enemyCount < maxEnemyCount) {
             yield return new WaitForSecondsRealtime(spawnDelayInSeconds);
             enemyCount++;
             SpawnEnemy();
@@ -57,14 +59,14 @@ public class EnemySpawner : MonoBehaviour {
         var enemy = e.gameObject;
         spawnPool.Return(enemy);
         killedEnemies++;
-        if (killedEnemies == maxEnemyCount) {
+        if (killedEnemies >= maxEnemyCount) {
             StopAllCoroutines();
-            Debug.Log($"Wave {level.WaveIndex} Finished!");
-            level.WaveIndex++;
             OnWaveCleared?.Invoke();
+            level.WaveIndex++;
             StartWave();
         }
     }
 
     Transform GetRandomTransformFromArray(Transform[] transforms) => transforms[UnityEngine.Random.Range(0, transforms.Length)];
 }
+    

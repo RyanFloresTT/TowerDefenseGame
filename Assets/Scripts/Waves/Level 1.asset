@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7b3949ab6a7514eb4a33efbb539d3c, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  <Waves>k__BackingField: []
+  <Waves>k__BackingField:
+  - <RequiredKills>k__BackingField: 5
+    <Delay>k__BackingField: 2
+  - <RequiredKills>k__BackingField: 4
+    <Delay>k__BackingField: 2
+  - <RequiredKills>k__BackingField: 3
+    <Delay>k__BackingField: 2
+  - <RequiredKills>k__BackingField: 4
+    <Delay>k__BackingField: 2
+  - <RequiredKills>k__BackingField: 5
+    <Delay>k__BackingField: 2
