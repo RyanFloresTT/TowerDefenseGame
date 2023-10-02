@@ -4,10 +4,10 @@ using UnityEngine;
 public class SurvivorBulletParticle : MonoBehaviour
 {
     [SerializeField] SurvivorShooting survivorShooting;
-    [SerializeField] float bulletDamage = 1f;
-    [SerializeField] ParticleSystem bulletParticleSystem;
+    [SerializeField] SurvivorData data;
 
     List<ParticleCollisionEvent> collisionEvents = new();
+    ParticleSystem bulletParticleSystem;
     Enemy targettedEnemy;
 
     void Start() {
@@ -24,7 +24,7 @@ public class SurvivorBulletParticle : MonoBehaviour
 
         if (other.HasComponent<Enemy>()) { 
             targettedEnemy = other.GetComponent<Enemy>();
-            targettedEnemy.TakeDamage(bulletDamage);
+            targettedEnemy.TakeDamage(data.Damage);
         }
     }
 }

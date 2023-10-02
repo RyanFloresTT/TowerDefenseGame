@@ -3,7 +3,7 @@ using UnityEngine;
 public class SurvivorRotation : MonoBehaviour
 {
     [SerializeField] SurvivorData data;
-    const float ROTATION_SPEED = 5f;
+    const float ROTATION_SPEED = 10f;
 
     void Update() {
         if (HasTarget()) {
