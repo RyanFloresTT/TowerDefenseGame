@@ -2,7 +2,7 @@ using System;using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakeDamage
 {
-    public static event Action<Enemy> OnEnemyDeath;
+    public static Action<Enemy> OnEnemyDeath;
     public event Action<float> OnDamageTaken;
     public static Action OnEnemySurvivedDamage;
 

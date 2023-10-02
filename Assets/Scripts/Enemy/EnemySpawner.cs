@@ -1,58 +1,50 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
-{
-    [SerializeField] private int maxEnemyCount;
-    [SerializeField] private float spawnDelayInSeconds;
-    [SerializeField] private GameObjectPool spawnPool;
-    [SerializeField] private Transform[] spawnLocations;
-    [SerializeField] private Transform[] chaseLocations;
-    private Transform chaseTarget;
+public class EnemySpawner : MonoBehaviour {
+    [SerializeField] int maxEnemyCount;
+    [SerializeField] float spawnDelayInSeconds;
+    [SerializeField] GameObjectPool spawnPool;
+    [SerializeField] Transform[] spawnLocations;
+    [SerializeField] Transform[] chaseLocations;
+    Transform chaseTarget;
 
-    private int enemyCount = 0;
+    int enemyCount = 0;
 
-    private void Start()
-    {
+    void Start() {
         StartCoroutine(SpawnEnemies());
-        Enemy.OnEnemyDeath += Handle_EnemyDeath;
+        TargetEnemyWithinRange.OnTargetClearedFromSurvivor += Handle_EnemyDeath;
         chaseTarget = chaseLocations[0];
     }
 
-    private IEnumerator SpawnEnemies()
-    {
-        while (enemyCount <= maxEnemyCount)
-        {
+    IEnumerator SpawnEnemies() {
+        while (enemyCount <= maxEnemyCount) {
             yield return new WaitForSecondsRealtime(spawnDelayInSeconds);
             SpawnEnemy();
         }
     }
 
-    private void SpawnEnemy()
-    {
+    void SpawnEnemy() {
         var enemy = spawnPool.Get();
         enemy.transform.position = GetRandomTransformFromArray(spawnLocations).position;
-        if (GetRandomTransformFromArray(chaseLocations) != null)
-        {
+        if (GetRandomTransformFromArray(chaseLocations) != null) {
             enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(GetRandomTransformFromArray(chaseLocations));
-        } else
-        {
+        } else {
             enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
         }
         enemyCount++;
     }
 
-    private void Handle_EnemyDeath(Enemy e)
-    {   
-        var enemy = e.gameObject;
+    void Handle_EnemyDeath(Enemy e) {   
         enemyCount--;
         e.ResetHealth();
+        var enemy = e.gameObject;
         spawnPool.Return(enemy);
-        if (enemyCount < maxEnemyCount)
-        {
+        StopAllCoroutines();
+        if (enemyCount < maxEnemyCount) {
             StartCoroutine(SpawnEnemies());
         }
     }
 
-    private Transform GetRandomTransformFromArray(Transform[] transforms) => transforms[UnityEngine.Random.Range(0, transforms.Length)];
+    Transform GetRandomTransformFromArray(Transform[] transforms) => transforms[UnityEngine.Random.Range(0, transforms.Length)];
 }

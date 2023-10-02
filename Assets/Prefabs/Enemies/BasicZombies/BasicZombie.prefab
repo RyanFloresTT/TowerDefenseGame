@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 8557546784503396166}
   - component: {fileID: 5212008652077004268}
   - component: {fileID: 6049461966297033444}
+  - component: {fileID: 1779620572135916075}
   m_Layer: 6
   m_Name: BasicZombie
   m_TagString: Untagged
@@ -483,6 +484,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!136 &1779620572135916075
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705238192640903732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3.33
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.65, z: 0}
 --- !u!1 &767146156394179019
 GameObject:
   m_ObjectHideFlags: 0
