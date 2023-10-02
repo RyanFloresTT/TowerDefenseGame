@@ -1,25 +1,47 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-    [SerializeField] int maxEnemyCount;
     [SerializeField] float spawnDelayInSeconds;
     [SerializeField] GameObjectPool spawnPool;
     [SerializeField] Transform[] spawnLocations;
-    [SerializeField] Transform[] chaseLocations;
-    Transform chaseTarget;
+    [SerializeField] Transform hubLocation;
+    [SerializeField] LevelData level;
 
-    int enemyCount = 0;
+    Transform chaseTarget;
+    int maxEnemyCount;
+    int enemyCount;
+    int killedEnemies;
+
+    public static Action OnWaveCleared;
 
     void Start() {
-        StartCoroutine(SpawnEnemies());
         TargetEnemyWithinRange.OnTargetClearedFromSurvivor += Handle_EnemyDeath;
-        chaseTarget = chaseLocations[0];
+        chaseTarget = hubLocation;
+        enemyCount = 0;
+        killedEnemies = 0;
+        level.WaveIndex = 0;
+        StartWave();
     }
 
-    IEnumerator SpawnEnemies() {
+    void StartWave() {
+        StartCoroutine(DelayUntilNextWave());
+    }
+
+    IEnumerator DelayUntilNextWave() {
+        yield return new WaitForSeconds(level.CurrentWave.Delay);
+        maxEnemyCount = level.CurrentWave.RequiredKills;
+        enemyCount = 0;
+        killedEnemies = 0;
+        StartCoroutine(SpawnEnemies());
+
+    }
+    IEnumerator SpawnEnemies()
+    {
         while (enemyCount <= maxEnemyCount) {
             yield return new WaitForSecondsRealtime(spawnDelayInSeconds);
+            enemyCount++;
             SpawnEnemy();
         }
     }
@@ -27,22 +49,20 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy() {
         var enemy = spawnPool.Get();
         enemy.transform.position = GetRandomTransformFromArray(spawnLocations).position;
-        if (GetRandomTransformFromArray(chaseLocations) != null) {
-            enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(GetRandomTransformFromArray(chaseLocations));
-        } else {
-            enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
-        }
-        enemyCount++;
+        enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
     }
 
-    void Handle_EnemyDeath(Enemy e) {   
-        enemyCount--;
+    void Handle_EnemyDeath(Enemy e) {
         e.ResetHealth();
         var enemy = e.gameObject;
         spawnPool.Return(enemy);
-        StopAllCoroutines();
-        if (enemyCount < maxEnemyCount) {
-            StartCoroutine(SpawnEnemies());
+        killedEnemies++;
+        if (killedEnemies == maxEnemyCount) {
+            StopAllCoroutines();
+            Debug.Log($"Wave {level.WaveIndex} Finished!");
+            level.WaveIndex++;
+            OnWaveCleared?.Invoke();
+            StartWave();
         }
     }
 

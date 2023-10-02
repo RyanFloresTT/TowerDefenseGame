@@ -8,7 +8,15 @@ public class SurvivorAnimations : MonoBehaviour {
     [SerializeField] Animator animator;
 
     const string FULL_AUTO_ANIM = "Full_Auto";
+    const string RELOAD_ANIM = "Reload";
 
+    void Awake() {
+        EnemySpawner.OnWaveCleared += Handle_WaveCleared;
+    }
+
+    void Handle_WaveCleared() {
+        animator.SetTrigger(RELOAD_ANIM);
+    }
 
     void Update()    {
         if (data.Target != null) {
