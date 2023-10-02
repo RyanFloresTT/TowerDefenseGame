@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] HUB mainHub;
     [SerializeField] GameObject container;
 
     private Animator gameOverAnimator;
@@ -14,7 +13,7 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        mainHub.OnHubDestroyed += Handle_HubDestroyed;
+        HUB.OnHubDestroyed += Handle_HubDestroyed;
         gameOverAnimator = GetComponent<Animator>();
         container.SetActive(false);
     }

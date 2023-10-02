@@ -1,25 +1,39 @@
 using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
 
 [RequireComponent(typeof(SphereCollider))]
-public class TargetEnemyWithinRange : MonoBehaviour
-{
-    public event Action<Enemy> OnObjectEnteredRange;
+public class TargetEnemyWithinRange : MonoBehaviour {
+    [SerializeField] SurvivorData data;
+    [SerializeField] SurvivorShooting shootingScript;
+    [SerializeField] LayerMask enemyLayer;
 
-    private SphereCollider triggerRadius;
+    public Action OnTargetChanged;
 
-    private void Start()
-    {
-        triggerRadius = GetComponent<SphereCollider>();
-        triggerRadius.isTrigger = true;
-    }
+    Collider[] colliders;
+    Enemy closestEnemy;
+    float closestDistance;
+    float distance;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        var enemy = other.gameObject.GetComponent<Enemy>();
-        if (enemy == null) return;
-        OnObjectEnteredRange?.Invoke(enemy);
+    void Update() {
+        colliders = Physics.OverlapSphere(transform.position, data.Range, enemyLayer);
+        closestEnemy = null;
+        closestDistance = float.MaxValue;
+
+        foreach (var collider in colliders) {
+            var enemy = collider.GetComponent<Enemy>();
+            if (enemy != null) {
+                distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestEnemy = enemy;
+                }
+            }
+        }
+
+        if (closestEnemy != data.Target) {
+            data.Target = closestEnemy;
+            OnTargetChanged?.Invoke();
+        }
     }
 }

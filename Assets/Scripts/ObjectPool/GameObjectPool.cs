@@ -29,9 +29,10 @@ public class GameObjectPool
         return gameObject;
     }
 
-    public void Return(GameObject gameObject, bool disableOnReturn = true)
+    public void Return(GameObject gameObject, bool disableOnReturn = true, bool restPositiononReturn = true)
     {
         if (disableOnReturn) gameObject.SetActive(false);
+        if (restPositiononReturn) gameObject.transform.position = container.position;
         pool.Push(gameObject);
     }
     private void InitializePool(int initializeAmount)
