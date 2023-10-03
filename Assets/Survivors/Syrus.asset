@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4bee6feba087944a949c01c69a746e, type: 3}
   m_Name: Syrus
   m_EditorClassIdentifier: 
+  Name: Syrus
+  TalkingHeadIcon: {fileID: 0}
+  StartingWeapon: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}
+  damage: 0.4
+  shotSpeed: 0.2
+  <Range>k__BackingField: 8
+  <DamageMultiplier>k__BackingField: 1
+  <ShotSpeedMultiplier>k__BackingField: 1

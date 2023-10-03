@@ -4,24 +4,23 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Survivor/New Survivor")]
 public class SurvivorData : ScriptableObject
 {
-    public string Name;
-    public Image TalkingHeadIcon;
-    public GameObject StartingWeapon;
-    public Enemy Target { get; set; }
+    [field: SerializeField] public string Name;
+    [field: SerializeField] public Image TalkingHeadIcon;
+    [field: SerializeField] public GameObject StartingWeapon;
+    [field: SerializeField] public Enemy Target { get; set; }
 
-    private float _damage;
+    [SerializeField] private float damage = 1f;
     public float Damage {
-        get { return _damage * DamageModifier; }
-        set { _damage = value; }
+        get { return damage * DamageMultiplier; }
+        set { damage = value; }
     }
 
-    private float _shotSpeed;
+    [SerializeField] private float shotSpeed = 1f;
     public float ShotSpeed {
-        get { return _shotSpeed * ShotSpeedMultiplier; }
-        set { _shotSpeed = value; }
+        get { return shotSpeed * ShotSpeedMultiplier; }
+        set { shotSpeed = value; }
     }
-
-    public float Range;
-    public float DamageModifier;
-    public float ShotSpeedMultiplier;
+    [field: SerializeField] public float Range { get; set; }
+    [field: SerializeField] public float DamageMultiplier { get; set; } = 1f;
+    [field: SerializeField] public float ShotSpeedMultiplier { get; set; } = 1f;
 }

@@ -1,80 +1,61 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
-public class Purchase : MonoBehaviour
-{
-    [SerializeField] private GameObject objectToUnlock;
-    [SerializeField] private GeneratorTier resourceTier;
-    [SerializeField] private float resourceCost;
-    [SerializeField] private GameObject errorText;
-    [SerializeField] private float errorTextDurationInSeconds;
-    [SerializeField] private GameObject nextMenu;
-    [SerializeField] private GameObject unlockText;
-    [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private GameObject costGroup;
-    [SerializeField] private GameObject thisMenu;
+public class Purchase : MonoBehaviour  {
+    [SerializeField] float resourceCost;
+    [SerializeField] GameObject errorText;
+    [SerializeField] float errorTextDurationInSeconds;
+    [SerializeField] GameObject nextMenu;
+    [SerializeField] GameObject unlockText;
+    [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] GameObject costGroup;
+    [SerializeField] GameObject thisMenu;
 
-    private bool wasPurchased;
+    bool wasPurchased;
 
-    private ResourceHandler resourceHandler;
+    ResourceHandler resourceHandler;
 
-    private void Start()
-    {
+    void Start() {
         resourceHandler = ResourceHandler.Instance;
-        wasPurchased = objectToUnlock.activeInHierarchy;
         costText.text = "x" + resourceCost.ToString();
 
-        if(wasPurchased)
-        {
+        if(wasPurchased) {
             costGroup.SetActive(false);
             unlockText.SetActive(false);
         }
     }
 
-    public void MakePurchase()
-    {
-        if (wasPurchased)
-        {
+    public void MakePurchase() {
+        if (wasPurchased) {
             ShowNextMenu();
-        } else
-        {
+        } else {
             CompletePurchase();
         }
     }
 
-    private void ShowErrorText()
-    {
+    void ShowErrorText() {
         errorText.SetActive(true);
         StartCoroutine(TurnOffErrorText());
     }
 
-    private IEnumerator TurnOffErrorText()
+    IEnumerator TurnOffErrorText()
     {
         yield return new WaitForSecondsRealtime(errorTextDurationInSeconds);
         errorText.SetActive(false);
     }
 
-    private void CompletePurchase()
-    {
-        var data = new ResourceData(resourceTier, resourceCost);
-        var successfulPurchase = resourceHandler.Purchase(data);
-        if (successfulPurchase)
-        {
-            objectToUnlock.SetActive(true);
+    void CompletePurchase() {
+        if (resourceHandler.Purchase(1)) {
             unlockText.SetActive(false);
             costGroup.SetActive(false);
             wasPurchased = true;
-        }
-        else
-        {
+        } else {
             ShowErrorText();
         }
     }
 
-    private void ShowNextMenu()
-    {
+    void ShowNextMenu() {
         nextMenu.SetActive(true);
         thisMenu.SetActive(false);
     }

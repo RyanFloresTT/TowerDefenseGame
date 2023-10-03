@@ -5,7 +5,7 @@ public class UpgradeFinder : MonoBehaviour
 {
     Ray ray;
     RaycastHit[] hits;
-    IHaveUpgrades lastOpenCanvas;
+    IHaveMenu lastOpenCanvas;
 
     void Awake() {
         GameInput.OnPlayerLeftClicked += Handle_LeftClick;
@@ -18,12 +18,12 @@ public class UpgradeFinder : MonoBehaviour
         foreach (RaycastHit hit in hits)
         {
             var colGameObject = hit.collider.gameObject;
-            if (!colGameObject.HasComponent<IHaveUpgrades>()) {
+            if (!colGameObject.HasComponent<IHaveMenu>()) {
                 CloseLastOpenCanvas();
                 continue; 
             } else {
                 CloseLastOpenCanvas();
-                var upgradeUnit = colGameObject.GetComponent<IHaveUpgrades>();
+                var upgradeUnit = colGameObject.GetComponent<IHaveMenu>();
                 upgradeUnit.ShowCanvas();
                 lastOpenCanvas = upgradeUnit;
             }

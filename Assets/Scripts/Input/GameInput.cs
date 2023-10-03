@@ -18,8 +18,7 @@ public class GameInput : MonoBehaviour
     void OnEnable() {
         playerActions.Player.LeftClick.Enable();
     }
-    void OnDisable()
-    {
+    void OnDisable() {
         playerActions.Player.LeftClick.Disable();
     }
 }

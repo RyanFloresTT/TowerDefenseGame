@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SurvivorUpgrades : MonoBehaviour, IHaveUpgrades
+public class SurvivorUpgrades : MonoBehaviour, IHaveMenu
 {
     [SerializeField] GameObject upgradeCanvas;
 
