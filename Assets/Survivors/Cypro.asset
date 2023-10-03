@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cypro
   TalkingHeadIcon: {fileID: 0}
-  StartingWeapon: {fileID: 0}
+  Weapon: {fileID: 7537633451494342781, guid: 5e84f9a2eb1c33f41a9e7f2d88782541, type: 3}
   <Target>k__BackingField: {fileID: 0}
   damage: 3
   shotSpeed: 2
   <Range>k__BackingField: 8
   <DamageMultiplier>k__BackingField: 1
   <ShotSpeedMultiplier>k__BackingField: 1
+  <IsMoving>k__BackingField: 0

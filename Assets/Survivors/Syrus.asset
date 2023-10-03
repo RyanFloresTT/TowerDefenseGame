@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Syrus
   TalkingHeadIcon: {fileID: 0}
-  StartingWeapon: {fileID: 0}
+  Weapon: {fileID: 5196274419043408319, guid: 2850bb377287531408c4dc495af6cc1b, type: 3}
   <Target>k__BackingField: {fileID: 0}
   damage: 0.4
   shotSpeed: 0.2
   <Range>k__BackingField: 8
   <DamageMultiplier>k__BackingField: 1
   <ShotSpeedMultiplier>k__BackingField: 1
+  <IsMoving>k__BackingField: 0

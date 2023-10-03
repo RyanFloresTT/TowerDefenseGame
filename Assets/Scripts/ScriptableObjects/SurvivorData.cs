@@ -6,7 +6,7 @@ public class SurvivorData : ScriptableObject
 {
     [field: SerializeField] public string Name;
     [field: SerializeField] public Image TalkingHeadIcon;
-    [field: SerializeField] public GameObject StartingWeapon;
+    [field: SerializeField] public GameObject Weapon;
     [field: SerializeField] public Enemy Target { get; set; }
 
     [SerializeField] private float damage = 1f;
@@ -23,4 +23,5 @@ public class SurvivorData : ScriptableObject
     [field: SerializeField] public float Range { get; set; }
     [field: SerializeField] public float DamageMultiplier { get; set; } = 1f;
     [field: SerializeField] public float ShotSpeedMultiplier { get; set; } = 1f;
+    [field: SerializeField] public bool IsMoving { get; set; }
 }
