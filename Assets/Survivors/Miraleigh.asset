@@ -18,7 +18,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   damage: 1
   shotSpeed: 1
-  <Range>k__BackingField: 8
+  <Range>k__BackingField: 12
   <DamageMultiplier>k__BackingField: 1
   <ShotSpeedMultiplier>k__BackingField: 1
   <IsMoving>k__BackingField: 0

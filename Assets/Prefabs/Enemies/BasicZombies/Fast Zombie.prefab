@@ -67,7 +67,7 @@ MonoBehaviour:
   damage: 3
   maxHealth: 2
   currentHealth: 0
-  pointValue: 0
+  pointValue: 2
 --- !u!136 &5212008652077004268
 CapsuleCollider:
   m_ObjectHideFlags: 0
