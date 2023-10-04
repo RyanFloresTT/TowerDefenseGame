@@ -1,9 +1,9 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class WaveData
-{
-    [field: SerializeField] public int RequiredKills { get; private set; }
-    [field: SerializeField] public float Delay { get; private set; }
+public class WaveData {
+    [field: SerializeField] public List<KillRequirement> KillRequirements { get; set; }
+    [field: SerializeField] public float DelayBetweenWaves { get; private set; }
 }

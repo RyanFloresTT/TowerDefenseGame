@@ -359,8 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea01268c9e8abc84a829753ee1d2aeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.125
-  speedMultipier: 0.5
+  speed: 2
+  speedMultipier: 1
   target: {fileID: 0}
 --- !u!114 &8557546784503396166
 MonoBehaviour:
@@ -377,6 +377,7 @@ MonoBehaviour:
   damage: 1
   maxHealth: 3
   currentHealth: 0
+  pointValue: 0
 --- !u!136 &5212008652077004268
 CapsuleCollider:
   m_ObjectHideFlags: 0

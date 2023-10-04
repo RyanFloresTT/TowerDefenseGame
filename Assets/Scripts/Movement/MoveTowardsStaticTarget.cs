@@ -1,32 +1,27 @@
 using System;
 using UnityEngine;
 
-public class MoveTowardsStaticTarget : MonoBehaviour
-{
-    [SerializeField] private float speed = 0.25f;
-    [SerializeField] private float speedMultipier = 1.0f;
-    [SerializeField] private Transform target;
-    private Vector3 currentTarget;
+public class MoveTowardsStaticTarget : MonoBehaviour {
+    [SerializeField] float speed = 0.25f;
+    [SerializeField] float speedMultipier = 1.0f;
+    [SerializeField] Transform target;
+    Vector3 currentTarget;
 
-    private void Start()
-    {
+    void Start() {
         if (target == null) return;
         currentTarget = target.position;
     }
 
-    private void FixedUpdate()
-    {
+    void FixedUpdate() {
         Move();
         RotateObject();
     }
 
-    private void Move()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * speedMultipier);
+    void Move() {
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * speedMultipier * Time.deltaTime);
     }
 
-    private void RotateObject()
-    {
+    void RotateObject() {
         transform.LookAt(currentTarget);
     }
 
