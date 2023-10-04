@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
 public class TargetEnemyWithinRange : MonoBehaviour {
     [SerializeField] SurvivorData data;
     [SerializeField] SurvivorShooting shootingScript;

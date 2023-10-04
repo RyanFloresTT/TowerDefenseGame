@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] float damage = 1;
     [SerializeField] float maxHealth;
     [SerializeField] float currentHealth;
+    [SerializeField] int pointValue;
+
+    public int PointValue { get { return pointValue; } private set { } } 
 
     void Start() {
         currentHealth = maxHealth;

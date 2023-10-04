@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4bee6feba087944a949c01c69a746e, type: 3}
   m_Name: Miraleigh
   m_EditorClassIdentifier: 
+  Name: Miraleigh
+  TalkingHeadIcon: {fileID: 0}
+  Weapon: {fileID: 3023887953916440961, guid: e8ffa13a0698e9f4f98209a0667e555d, type: 3}
+  <Target>k__BackingField: {fileID: 0}
+  damage: 1
+  shotSpeed: 1
+  <Range>k__BackingField: 12
+  <DamageMultiplier>k__BackingField: 1
+  <ShotSpeedMultiplier>k__BackingField: 1
+  <IsMoving>k__BackingField: 0

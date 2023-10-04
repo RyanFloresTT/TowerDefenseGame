@@ -13,13 +13,47 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   <Waves>k__BackingField:
-  - <RequiredKills>k__BackingField: 5
-    <Delay>k__BackingField: 2
-  - <RequiredKills>k__BackingField: 4
-    <Delay>k__BackingField: 2
-  - <RequiredKills>k__BackingField: 3
-    <Delay>k__BackingField: 2
-  - <RequiredKills>k__BackingField: 4
-    <Delay>k__BackingField: 2
-  - <RequiredKills>k__BackingField: 5
-    <Delay>k__BackingField: 2
+  - <KillRequirements>k__BackingField:
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: e65c1c3a69395bf4db78bc6ed5a24314,
+        type: 3}
+      <SpawnAmount>k__BackingField: 1
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 8b73db6e047e08d498f3788500648492,
+        type: 3}
+      <SpawnAmount>k__BackingField: 2
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 1e0045ec9e7ac6c4eb4f417f37dbbf8d,
+        type: 3}
+      <SpawnAmount>k__BackingField: 3
+    <DelayBetweenWaves>k__BackingField: 2
+  - <KillRequirements>k__BackingField:
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: e65c1c3a69395bf4db78bc6ed5a24314,
+        type: 3}
+      <SpawnAmount>k__BackingField: 1
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 8b73db6e047e08d498f3788500648492,
+        type: 3}
+      <SpawnAmount>k__BackingField: 2
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 1e0045ec9e7ac6c4eb4f417f37dbbf8d,
+        type: 3}
+      <SpawnAmount>k__BackingField: 3
+    <DelayBetweenWaves>k__BackingField: 2
+  - <KillRequirements>k__BackingField:
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: e65c1c3a69395bf4db78bc6ed5a24314,
+        type: 3}
+      <SpawnAmount>k__BackingField: 1
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 8b73db6e047e08d498f3788500648492,
+        type: 3}
+      <SpawnAmount>k__BackingField: 2
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 1e0045ec9e7ac6c4eb4f417f37dbbf8d,
+        type: 3}
+      <SpawnAmount>k__BackingField: 3
+    <DelayBetweenWaves>k__BackingField: 2
+  - <KillRequirements>k__BackingField:
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: e65c1c3a69395bf4db78bc6ed5a24314,
+        type: 3}
+      <SpawnAmount>k__BackingField: 1
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 8b73db6e047e08d498f3788500648492,
+        type: 3}
+      <SpawnAmount>k__BackingField: 2
+    - <Zombie>k__BackingField: {fileID: 705238192640903732, guid: 1e0045ec9e7ac6c4eb4f417f37dbbf8d,
+        type: 3}
+      <SpawnAmount>k__BackingField: 3
+    <DelayBetweenWaves>k__BackingField: 2

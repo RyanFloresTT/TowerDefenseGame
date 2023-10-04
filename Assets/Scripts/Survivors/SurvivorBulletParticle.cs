@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class SurvivorBulletParticle : MonoBehaviour
 {
-    [SerializeField] SurvivorShooting survivorShooting;
-    [SerializeField] SurvivorData data;
-
+    SurvivorShooting survivorShooting;
+    SurvivorData data;
     List<ParticleCollisionEvent> collisionEvents = new();
     ParticleSystem bulletParticleSystem;
     Enemy targettedEnemy;
@@ -26,5 +25,12 @@ public class SurvivorBulletParticle : MonoBehaviour
             targettedEnemy = other.GetComponent<Enemy>();
             targettedEnemy.TakeDamage(data.Damage);
         }
+    }
+
+    public void SetShootingComponent(SurvivorShooting shootingComponent) {
+        survivorShooting = shootingComponent;
+    }
+    public void SetData(SurvivorData incData) {
+        data = incData;
     }
 }
