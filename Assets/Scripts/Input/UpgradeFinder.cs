@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeFinder : MonoBehaviour
 {
+    [SerializeField] LayerMask upgradeLayer;
     Ray ray;
     RaycastHit[] hits;
     IHaveMenu lastOpenCanvas;
@@ -11,28 +11,21 @@ public class UpgradeFinder : MonoBehaviour
         GameInput.OnPlayerLeftClicked += Handle_LeftClick;
     }
 
-    void Handle_LeftClick()
-    {
+    void Handle_LeftClick() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        hits = Physics.RaycastAll(ray, float.MaxValue);
-        foreach (RaycastHit hit in hits)
-        {
+        hits = Physics.RaycastAll(ray, float.MaxValue, upgradeLayer);
+        foreach (RaycastHit hit in hits) {
+            CloseLastOpenCanvas();
             var colGameObject = hit.collider.gameObject;
-            if (!colGameObject.HasComponent<IHaveMenu>()) {
-                CloseLastOpenCanvas();
-                continue; 
-            } else {
-                CloseLastOpenCanvas();
-                var upgradeUnit = colGameObject.GetComponent<IHaveMenu>();
-                upgradeUnit.ShowCanvas();
-                lastOpenCanvas = upgradeUnit;
+            colGameObject.TryGetComponent<IHaveMenu>(out lastOpenCanvas);
+            lastOpenCanvas?.ShowCanvas();
+            if (lastOpenCanvas != null) {
+                break;
             }
         }
     }
 
     void CloseLastOpenCanvas() {
-        if (lastOpenCanvas != null) {
-            lastOpenCanvas.HideCanvas();
-        }
+        lastOpenCanvas?.HideCanvas();
     }
 }

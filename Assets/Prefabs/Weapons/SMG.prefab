@@ -103,6 +103,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletParticles: {fileID: 5196274419210343297}
+  weaponAttachments:
+  - <Attachment>k__BackingField: {fileID: 5196274419043416001}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: e27ffe5094629174190930367c39c38c,
+      type: 3}
+  - <Attachment>k__BackingField: {fileID: 5196274419043640367}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: 8437e30fbeb4de240880a11bf1a2da2b,
+      type: 3}
 --- !u!1 &5196274419043416001
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5196274419043859517
 Transform:
   m_ObjectHideFlags: 0

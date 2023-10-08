@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurvivorAnimations : MonoBehaviour {
-    [SerializeField] SurvivorData data;
+public class SurvivorAnimations : MonoBehaviour, IUseSurvivorData
+{
     [SerializeField] Animator animator;
+
+    SurvivorData data;
 
     const string FULL_AUTO_ANIM = "Full_Auto";
     const string RELOAD_ANIM = "Reload";
 
     void Awake() {
+        GetSurvivorData();
         EnemySpawner.OnWaveCleared += Handle_WaveCleared;
     }
 
@@ -24,5 +27,10 @@ public class SurvivorAnimations : MonoBehaviour {
         } else {
             animator.SetBool(FULL_AUTO_ANIM, false);
         }
+    }
+
+    public void GetSurvivorData()
+    {
+        data = GetComponent<Survivor>().Data;
     }
 }
