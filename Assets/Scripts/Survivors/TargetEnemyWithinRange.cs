@@ -1,17 +1,21 @@
 using System;
 using UnityEngine;
 
-public class TargetEnemyWithinRange : MonoBehaviour {
-    [SerializeField] SurvivorData data;
+public class TargetEnemyWithinRange : MonoBehaviour, IUseSurvivorData {
     [SerializeField] SurvivorShooting shootingScript;
     [SerializeField] LayerMask enemyLayer;
 
-    public Action OnTargetChanged;
-
+    SurvivorData data;
     Collider[] colliders;
     Enemy closestEnemy;
     float closestDistance;
     float distance;
+
+    public Action OnTargetChanged;
+
+    void Awake() {
+        GetSurvivorData();
+    }
 
     void Update() {
         colliders = Physics.OverlapSphere(transform.position, data.Range, enemyLayer);
@@ -34,5 +38,9 @@ public class TargetEnemyWithinRange : MonoBehaviour {
             data.Target = closestEnemy;
             OnTargetChanged?.Invoke();
         }
+    }
+
+    public void GetSurvivorData() {
+        data = GetComponent<Survivor>().Data;
     }
 }

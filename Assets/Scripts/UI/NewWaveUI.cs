@@ -19,7 +19,7 @@ public class NewWaveUI : MonoBehaviour
 
     IEnumerator ShowWaveUI(int wave) {
         container.SetActive(true);
-        waveText.text = $"<bounce>Wave {wave}!</bounce>";
+        waveText.text = $"Wave {wave}!";
         yield return new WaitForSeconds(shownTime);
         container.SetActive(false);
     }

@@ -4900,7 +4900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3023887953916196313
 Transform:
   m_ObjectHideFlags: 0
@@ -5069,6 +5069,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletParticles: {fileID: 3023887953457584060}
+  weaponAttachments:
+  - <Attachment>k__BackingField: {fileID: 3023887953916449441}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: e27ffe5094629174190930367c39c38c,
+      type: 3}
+  - <Attachment>k__BackingField: {fileID: 3023887953916366343}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: f166a91ba08f4084f9d8f5b827a00988,
+      type: 3}
+  - <Attachment>k__BackingField: {fileID: 3023887953916485249}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: d141682753625014f947c810e51d4b02,
+      type: 3}
+  - <Attachment>k__BackingField: {fileID: 3023887953916491415}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: 8437e30fbeb4de240880a11bf1a2da2b,
+      type: 3}
+  - <Attachment>k__BackingField: {fileID: 3023887953916462117}
+    <Name>k__BackingField: 
+    <Type>k__BackingField: 0
+    <Amount>k__BackingField: 1
+    <Cost>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 21300000, guid: 5eb8915e24fd2974d914ea3a2538f7e2,
+      type: 3}
 --- !u!1 &3023887953916449441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5086,7 +5122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3023887953916069253
 Transform:
   m_ObjectHideFlags: 0
@@ -5343,8 +5379,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3023887953916491415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0004851364, y: 0.42880666, z: -0.012920705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00048513617, y: 0.42880666, z: -0.012920737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

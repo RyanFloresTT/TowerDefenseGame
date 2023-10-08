@@ -1,16 +1,24 @@
 using System.Collections;
 using UnityEngine;
 
-public class SurvivorMoveTo : MonoBehaviour
+public class SurvivorMoveTo : MonoBehaviour, IUseSurvivorData, IHaveActionButtons
 {
-    [SerializeField] SurvivorData data; 
     [SerializeField] LayerMask layerMaskToIgnore;
     [SerializeField] Vector3 velocity = Vector3.zero;
     [SerializeField] float smoothTime = 0.2f;
+    [SerializeField] MenuButton upgradeAction;
+    [SerializeField] GameObject actionButtonPrefab;
 
+    SurvivorData data;
     bool hasClicked;
     bool awaitingClick;
     Vector3 destination;
+
+    public GameObject ActionButton { get { return actionButtonPrefab; } set { } }
+
+    void Awake() {
+        GetSurvivorData();
+    }
 
     void Start() {
         hasClicked = false;
@@ -49,4 +57,6 @@ public class SurvivorMoveTo : MonoBehaviour
     }
 
     bool HasClicked() => hasClicked;
+
+    public void GetSurvivorData() => data = GetComponent<Survivor>().Data;
 }

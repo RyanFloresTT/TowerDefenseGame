@@ -2,16 +2,19 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class SurvivorShooting : MonoBehaviour
+[RequireComponent(typeof(Survivor))]
+public class SurvivorShooting : MonoBehaviour, IUseSurvivorData
 {
-    [SerializeField] SurvivorData data;
     [SerializeField] TargetEnemyWithinRange targeting;
+
+    SurvivorData data;
 
     public Action OnSurvivorShot;
     public static Action OnSurvivorShotGunSFX;
 
     void Awake() {
         targeting.OnTargetChanged += Handle_TargetChanged;
+        GetSurvivorData();
     }
 
     void Handle_TargetChanged() {
@@ -28,4 +31,8 @@ public class SurvivorShooting : MonoBehaviour
     }
 
     bool HasTarget() => data.Target != null;
+
+    public void GetSurvivorData() {
+        data = GetComponent<Survivor>().Data;
+    }
 }

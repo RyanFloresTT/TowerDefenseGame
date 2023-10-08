@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class SurvivorRotation : MonoBehaviour
+public class SurvivorRotation : MonoBehaviour, IUseSurvivorData
 {
-    [SerializeField] SurvivorData data;
+    SurvivorData data;
     const float ROTATION_SPEED = 10f;
+
+    void Awake() {
+        GetSurvivorData();
+    }
 
     void Update() {
         if (HasTarget()) {
@@ -24,4 +28,8 @@ public class SurvivorRotation : MonoBehaviour
 
 
     bool HasTarget() => data.Target != null;
+
+    public void GetSurvivorData() {
+        data = GetComponent<Survivor>().Data;
+    }
 }

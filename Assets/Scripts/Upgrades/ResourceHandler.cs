@@ -35,6 +35,7 @@ public class ResourceHandler : MonoBehaviour {
             return true;
         }
         else {
+            ShowErrorText();
             return false;
         }  
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cypro
   m_EditorClassIdentifier: 
   Name: Cypro
-  TalkingHeadIcon: {fileID: 0}
+  profilePicture: {fileID: 21300000, guid: 95672ecff928d3041ac5dfaf44cc910a, type: 3}
   Weapon: {fileID: 7537633451494342781, guid: 5e84f9a2eb1c33f41a9e7f2d88782541, type: 3}
   <Target>k__BackingField: {fileID: 0}
   damage: 3
@@ -21,4 +21,5 @@ MonoBehaviour:
   <Range>k__BackingField: 12
   <DamageMultiplier>k__BackingField: 1
   <ShotSpeedMultiplier>k__BackingField: 1
+  <Survivor>k__BackingField: {fileID: 0}
   <IsMoving>k__BackingField: 0
