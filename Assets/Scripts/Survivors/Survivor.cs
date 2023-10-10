@@ -10,6 +10,7 @@ public class Survivor : MonoBehaviour
     [SerializeField] float damage;
     [SerializeField] float shotSpeedMult;
     [SerializeField] float damageMult;
+    [SerializeField] float speed;
     public SurvivorData Data { get { return data; } }
 
     public IHaveActionButtons[] ActionButtons { get { 
@@ -39,5 +40,8 @@ public class Survivor : MonoBehaviour
         data.ShotSpeed = shotSpeed;
         data.DamageMultiplier = damageMult;
         data.ShotSpeedMultiplier = shotSpeedMult;
+        data.Speed = speed;
+        data.IsMoving = false;
+        data.Target = null;
     }
 }

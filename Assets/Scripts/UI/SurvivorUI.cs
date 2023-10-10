@@ -16,14 +16,21 @@ public class SurvivorUI : MonoBehaviour
     IHaveActionButtons[] actionButtons;
     SurvivorData data;
 
+    public static Action<SurvivorData> OnMoveSurvivorSet;
+
     void Awake() {
         SurvivorUpgrades.OnSurvivorSelected += Handle_SurvivorSelected;
         ExitActionButtonMenu.OnExitMenuPressed += Handle_ExitMenu;
         UpgradeWeaponActionButton.OnShowUpgradeButtons += Handle_ShowUpgrades;
         WeaponUpgrade.OnUpgradeSuccessful += Handle_WeaponUpgraded;
+        MoveActionButton.OnMovePrimed += Handle_MovePrimed;
     }
 
-    private void Handle_WeaponUpgraded() {
+    void Handle_MovePrimed() {
+        OnMoveSurvivorSet?.Invoke(data);
+    }
+
+    void Handle_WeaponUpgraded() {
         Debug.Log('H');
         SetSurvivorDetails();
     }
@@ -32,7 +39,7 @@ public class SurvivorUI : MonoBehaviour
         ShowUnlockAttachmentButtons();
     }
 
-    private void Handle_ExitMenu() {
+    void Handle_ExitMenu() {
         ClearContainer();
         data = null;
     }

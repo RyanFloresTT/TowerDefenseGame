@@ -24,9 +24,11 @@ public class SurvivorShooting : MonoBehaviour, IUseSurvivorData
 
     IEnumerator Shoot() {
         while (HasTarget()) {
+            if (!data.IsMoving) {
+                OnSurvivorShot?.Invoke();
+                OnSurvivorShotGunSFX?.Invoke();
+            }
             yield return new WaitForSeconds(data.ShotSpeed);
-            OnSurvivorShot?.Invoke();
-            OnSurvivorShotGunSFX?.Invoke();
         }
     }
 

@@ -11,6 +11,7 @@ public class SurvivorAnimations : MonoBehaviour, IUseSurvivorData
 
     const string FULL_AUTO_ANIM = "Full_Auto";
     const string RELOAD_ANIM = "Reload";
+    const string RUNNING_ANIM = "Running";
 
     void Awake() {
         GetSurvivorData();
@@ -21,10 +22,18 @@ public class SurvivorAnimations : MonoBehaviour, IUseSurvivorData
         animator.SetTrigger(RELOAD_ANIM);
     }
 
-    void Update()    {
-        if (data.Target != null) {
+    void Update() {
+        if (data.IsMoving) {
+            animator.SetBool(RUNNING_ANIM, true);
+        }
+        else {
+            animator.SetBool(RUNNING_ANIM, false);
+        }
+
+        if (data.Target != null && !data.IsMoving) {     
             animator.SetBool(FULL_AUTO_ANIM, true);
-        } else {
+        }
+        else {
             animator.SetBool(FULL_AUTO_ANIM, false);
         }
     }

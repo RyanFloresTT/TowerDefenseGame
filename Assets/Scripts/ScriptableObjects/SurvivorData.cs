@@ -23,5 +23,6 @@ public class SurvivorData : ScriptableObject
     [field: SerializeField] public float DamageMultiplier { get; set; } = 1f;
     [field: SerializeField] public float ShotSpeedMultiplier { get; set; } = 1f;
     [field: SerializeField] public Survivor Survivor { get ; set; }
-    [field: SerializeField] public bool IsMoving { get; set; }
+    [field: SerializeField] public float Speed { get; set; }
+    public bool IsMoving { get; set; } = false;
 }
