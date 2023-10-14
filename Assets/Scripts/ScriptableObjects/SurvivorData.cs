@@ -7,6 +7,7 @@ public class SurvivorData : ScriptableObject
     [field: SerializeField] public Sprite profilePicture;
     [field: SerializeField] public GameObject Weapon;
     [field: SerializeField] public Enemy Target { get; set; }
+    [field: SerializeField] public int WeaponType { get; set; }
 
     [SerializeField] private float damage = 1f;
     public float Damage {

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class Survivor : MonoBehaviour
@@ -28,7 +26,7 @@ public class Survivor : MonoBehaviour
 
         data.Survivor = this;
 
-        if ( survivorWeapon != null ) { SetWeaponComponents(); }
+        if ( survivorWeapon != null )  SetWeaponComponents();
     }
 
     void SetWeaponComponents() {

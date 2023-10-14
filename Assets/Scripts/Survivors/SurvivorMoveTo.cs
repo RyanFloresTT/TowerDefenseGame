@@ -1,7 +1,5 @@
 using UnityEngine;
 using PrimeTween;
-using System;
-using System.Threading.Tasks;
 
 public class SurvivorMoveTo : MonoBehaviour, IUseSurvivorData, IHaveActionButtons
 {

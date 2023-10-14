@@ -31,7 +31,6 @@ public class SurvivorUI : MonoBehaviour
     }
 
     void Handle_WeaponUpgraded() {
-        Debug.Log('H');
         SetSurvivorDetails();
     }
 

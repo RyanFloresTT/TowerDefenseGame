@@ -65,9 +65,10 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     void SpawnEnemy() {
-        var enemy = spawnPool.Get();
+        var enemy = spawnPool.Get(false);
         enemy.transform.position = GetRandomTransformFromArray(spawnLocations).position;
-        enemy.gameObject.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
+        enemy.GetComponent<MoveTowardsStaticTarget>().SetTarget(chaseTarget);
+        enemy.SetActive(true);
     }
 
     void Handle_EnemyDeath(Enemy e) {
