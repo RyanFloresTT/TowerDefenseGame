@@ -16,10 +16,11 @@ MonoBehaviour:
   profilePicture: {fileID: 21300000, guid: 95672ecff928d3041ac5dfaf44cc910a, type: 3}
   Weapon: {fileID: 7537633451494342781, guid: 5e84f9a2eb1c33f41a9e7f2d88782541, type: 3}
   <Target>k__BackingField: {fileID: 0}
+  <WeaponType>k__BackingField: 5
   damage: 3
   shotSpeed: 2
   <Range>k__BackingField: 12
   <DamageMultiplier>k__BackingField: 1
   <ShotSpeedMultiplier>k__BackingField: 1
   <Survivor>k__BackingField: {fileID: 0}
-  <IsMoving>k__BackingField: 0
+  <Speed>k__BackingField: 5

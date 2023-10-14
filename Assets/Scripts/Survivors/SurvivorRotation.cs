@@ -10,7 +10,7 @@ public class SurvivorRotation : MonoBehaviour, IUseSurvivorData
     }
 
     void Update() {
-        if (HasTarget()) {
+        if (HasTarget() && !data.IsMoving) {
             LookAtTarget();
         }
     }
@@ -25,7 +25,6 @@ public class SurvivorRotation : MonoBehaviour, IUseSurvivorData
         float step = ROTATION_SPEED * Time.deltaTime;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, step);
     }
-
 
     bool HasTarget() => data.Target != null;
 
